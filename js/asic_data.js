@@ -414,5 +414,171 @@ window.ASIC_SUPPLY_CHAIN_DATA = {
         strategicScore: "⚡ HBM 記憶體優勢與國家隊抱團追趕的進擊者"
       }
     ]
+  },
+
+  // Google TPU (Tensor Processing Unit) 全球上下游產業鏈旗艦數據庫
+  googleTpuSupplyChain: {
+    title: "Google TPU (Tensor Processing Unit) 全球上下游產業鏈旗艦全景地圖",
+    subtitle: "全球自研 ASIC 最成熟、部署規模逾百萬顆、Gemini 2.0 與 Apple Intelligence 背後的算力心臟",
+    overview: "Google TPU 是全球雲端巨頭自研 AI 晶片歷史最悠久、規模最大、軟硬體整合最極致的旗艦典範。從 2015 年 TPU v1 誕生，經歷 v2/v3 的液冷引進，到 v4 突破性採用 3D Torus 自研光電路開關 (OCS)，再到當前旗艦 TPU v5p 與次世代 TPU v6 Trillium，背後聯手博通 (Broadcom)、台積電 (TSMC)、SK 海力士 (HBM) 與台灣廣達 (Quanta) 打造出全球最具競爭力的自研閉環生態圈！",
+    
+    // 歷代進化史 (v1 到 v6 Trillium)
+    generations: [
+      { gen: "TPU v1", year: "2015", node: "28nm TSMC", memory: "8GB DDR3", cooling: "傳統氣冷", scale: "單卡加速器", workload: "Google 搜尋推論、AlphaGo 世紀圍棋人機大戰", role: "開拓時代" },
+      { gen: "TPU v2", year: "2017", node: "16nm TSMC", memory: "16GB HBM", cooling: "氣冷模組", scale: "256 顆 Pod", workload: "首度支援浮點 bfloat16 與大模型分散式訓練", role: "訓練元年" },
+      { gen: "TPU v3", year: "2018", node: "16nm TSMC", memory: "32GB HBM2", cooling: "首度導入直流水冷", scale: "1,024 顆 Pod", workload: "BERT 自然語言預訓練、YouTube 推薦系統神經網絡", role: "液冷先驅" },
+      { gen: "TPU v4", year: "2021", node: "7nm TSMC", memory: "32GB HBM2", cooling: "機櫃級全液冷", scale: "4,096 顆 Pod", workload: "全面導入自研 OCS 光開關互聯，訓練 PaLM 540B 旗艦模型", role: "光互聯突破" },
+      { gen: "TPU v5e", year: "2023", node: "5nm TSMC", memory: "16GB HBM2", cooling: "高密度氣冷/水冷", scale: "256 顆 Pod", workload: "性價比之王，大模型中型訓練與大規模高效推論 (Midjourney 採用)", role: "極致性價比" },
+      { gen: "TPU v5p", year: "2023", node: "4nm TSMC", memory: "95GB HBM2e", cooling: "高階銅製冷板液冷", scale: "8,960 顆 Pod", workload: "訓練 Gemini 1.0/1.5 Ultra、支持 Apple Intelligence 基礎模型", role: "頂級旗艦" },
+      { gen: "TPU v6 (Trillium)", year: "2024-2025", node: "4nm TSMC", memory: "32GB HBM3 (2.5TB/s)", cooling: "高效直流液冷", scale: "擴展至數萬顆超集群", workload: "Gemini 2.0 多模態推理、前沿合成數據訓練、4.7x 運算密度跳升", role: "次世代霸主" }
+    ],
+
+    // 三大核心層級詳細生態
+    tiers: [
+      {
+        tierId: "tpu_upstream",
+        titleZh: "🧬 上游：矽智財 (IP)、先進晶圓製造、高頻寬記憶體與光開關",
+        titleEn: "Upstream: Silicon IP, TSMC Advanced Foundry, HBM & MEMS Optical Switches",
+        color: "#8b5cf6",
+        description: "Google TPU 實體矽晶片的製造源頭。包括晶片邏輯設計 IP、台積電先進 FinFET 製程、SK 海力士 HBM 堆疊與自研 MEMS 光開關。",
+        categories: [
+          {
+            name: "晶圓代工與先進封裝 (Foundry & CoWoS)",
+            keyPlayer: "台積電 (TSMC / 2330.TW)",
+            role: "Google TPU 歷代晶片唯一且獨家的晶圓代工製造商。TPU v4 (7nm)、v5e (5nm)、v5p (4nm) 及 TPU v6 Trillium (4nm) 均由台積電操刀，並採用 CoWoS 2.5D 晶圓級封裝將 TPU 晶粒與 HBM 記憶體高度集成。",
+            share: "100% 獨家先進代工",
+            ticker: "TSM / 2330.TW"
+          },
+          {
+            name: "高頻寬記憶體 (HBM)",
+            keyPlayer: "SK 海力士 (SK Hynix) & 三星電子 (Samsung)",
+            role: "SK 海力士為 TPU v5p / v6 旗艦的主要 HBM3/HBM2e 供應商，高達 2.5 TB/s 的頻寬確保龐大模型參數得以高速餵入 TPU 矩陣核心；美光 (Micron) 與三星為二供與擴展認證夥伴。",
+            share: "SK 海力士主供 (>70%)",
+            ticker: "000660.KS"
+          },
+          {
+            name: "自研光電路開關 (OCS) 與 MEMS 光學元件",
+            keyPlayer: "Google 自研 MEMS 光學 + 聯鈞 (3450) / 聯亞 (3081) / Coherent",
+            role: "Google 獨門殺手鐧！自研 Optical Circuit Switch (OCS) 利用微機電 (MEMS) 2D 旋轉反射鏡，直接以光纖繞徑切換，完全繞過耗電的高速光電光 (O-E-O) 轉換，形成全球最先進的動態光網狀拓撲。",
+            share: "Google 專利封閉技術",
+            ticker: "3450.TW / COHR"
+          },
+          {
+            name: "EDA 設計工具與處理器 IP",
+            keyPlayer: "新思科技 (Synopsys) / 益華電腦 (Cadence) / Arm",
+            role: "提供晶片邏輯驗證、訊號完整性模擬及 Host 處理器輔助架構 IP，確保百億電晶體超大晶片一次流片成功。",
+            share: "美系 EDA 雙雄",
+            ticker: "SNPS / CDNS"
+          }
+        ]
+      },
+      {
+        tierId: "tpu_midstream",
+        titleZh: "⚡ 中游：設計服務 (Broadcom)、高階載板、水冷散熱與伺服器 ODM 整櫃",
+        titleEn: "Midstream: Broadcom Turnkey, ABF Substrate, Liquid Cooling & Quanta ODM",
+        color: "#06b6d4",
+        description: "將 Google 的 TPU 演算法藍圖轉化為資料中心機櫃的關鍵中樞，台灣供應鏈在此扮演絕對主導角色！",
+        categories: [
+          {
+            name: "ASIC 設計服務與實體轉譯 (Turnkey)",
+            keyPlayer: "博通 (Broadcom / AVGO)",
+            role: "Google TPU 最核心的十年共同研發夥伴！博通負責將 Google 的脈動陣列架構進行實體設計佈局 (Physical Design)，整合特製高速 SerDes 通訊單元，並協同台積電進行流片與封裝封測。",
+            share: "博通客製營收最大單一來源",
+            ticker: "AVGO"
+          },
+          {
+            name: "白牌 AI 伺服器整機與機櫃 ODM 龍頭",
+            keyPlayer: "廣達電腦 / 雲達科技 (Quanta / QCT / 2382.TW)",
+            role: "Google TPU 最主要的伺服器整機與整櫃 (Rack-level) 代工龍頭！廣達與 Google 合作自研白牌伺服器已超過 15 年，從主機板打件、高速匯流排配線、液冷管路到整個 TPU Pod 系統集成由廣達全面操刀。",
+            share: "TPU 整機主供 (>65%)",
+            ticker: "2382.TW"
+          },
+          {
+            name: "伺服器主板組裝分流 (ODM Peers)",
+            keyPlayer: "英業達 (2356.TW) & 緯穎 (6669.TW)",
+            role: "英業達長期負責 Google 資料中心主機板組裝 (SMT)；緯穎則在邊緣推論與機箱模組中具備深度合作關係。",
+            share: "主板與周邊代工",
+            ticker: "2356.TW / 6669.TW"
+          },
+          {
+            name: "高階 ABF 載板 (IC Substrate)",
+            keyPlayer: "欣興電子 (3037.TW) & 日本揖斐電 (Ibiden / 4062.T)",
+            role: "TPU 晶片面積巨大且需與多顆 HBM 進行 2.5D CoWoS 封裝，需採用 16~20 層以上的大尺寸高密度 ABF 載板，欣興為 Google TPU 載板核心第一主供。",
+            share: "全球 ABF 雙雄",
+            ticker: "3037.TW / 4062.T"
+          },
+          {
+            name: "水冷散熱與 CDU 冷卻液分配單元",
+            keyPlayer: "雙鴻科技 (3324.TW) & 奇鋐科技 (3017.TW)",
+            role: "TPU v3 起便全面強制採用液冷技術。雙鴻與奇鋐為 TPU 客製專用銅製水冷板 (Cold Plate)、分流管 (Manifold) 及機櫃級冷卻液分配系統 (CDU)，單晶片解熱能力突破 700W~1000W。",
+            share: "台灣散熱雙雄",
+            ticker: "3324.TW / 3017.TW"
+          },
+          {
+            name: "高層數高速 PCB 與超低損耗 CCL 銅箔基板",
+            keyPlayer: "金像電 (2368.TW) & 台光電 (2383.TW)",
+            role: "金像電為 TPU 主板 (UBB/OAM) 與自研交換機背板的主力 PCB 廠；台光電獨家供應極低介電損耗 (Ultra Low Loss) CCL 材料，確保高速 PCIe 6.0 與 SerDes 訊號不衰減。",
+            share: "AI PCB 霸主",
+            ticker: "2368.TW / 2383.TW"
+          },
+          {
+            name: "高壓電源供應器與匯流排 (Busbar)",
+            keyPlayer: "台達電 (2308.TW) & 貿聯-KY (3665.TW)",
+            role: "台達電提供符合 Open Rack 規範之 48V/12V 鈦金級高轉換效率電源供應模組；貿聯-KY 供應機櫃內部大電流 Busbar 銅排與高速連接線束。",
+            share: "電源與線束主力",
+            ticker: "2308.TW / 3665.TW"
+          }
+        ]
+      },
+      {
+        tierId: "tpu_downstream",
+        titleZh: "☁️ 下游：GCP 雲端超算叢集、Gemini 基礎大模型與外部重量級客戶",
+        titleEn: "Downstream: GCP TPU Pods, Gemini 2.0, DeepMind & Enterprise Clients",
+        color: "#10b981",
+        description: "Google 自研 TPU 的終端算力價值變現！包括支援自家所有億級用戶核心產品，並在 GCP 上直接對外輸出算力服務。",
+        categories: [
+          {
+            name: "Google 內部旗艦大模型訓練 (Internal AI)",
+            keyPlayer: "Google DeepMind & Google Research",
+            role: "Gemini 1.0, 1.5 Pro, 2.0 Flash/Pro 系列多模態前沿基礎模型全部 100% 在數萬顆 TPU v4 與 TPU v5p Pod 上預訓練與微調完成，無依賴任何外部 GPU！",
+            workload: "Gemini 2.0 前沿模型、AlphaFold 3 蛋白質預測"
+          },
+          {
+            name: "Google 億級用戶消費級核心產品",
+            keyPlayer: "Google Search, YouTube, Workspace, Photos",
+            role: "每天數十億次 Google 搜尋 AI Overviews、YouTube 視頻推薦排序、Gmail 智慧撰寫全部運行於 TPU 叢集上，使 Google 每年節省超過數十億美元 GPU 租賃與電費成本。",
+            workload: "全球每日數十億次即時推論"
+          },
+          {
+            name: "Google Cloud Platform (GCP 雲端算力租賃)",
+            keyPlayer: "Google Cloud TPU Pods (超大單一網格集群)",
+            role: "透過 GKE (Google Kubernetes Engine) 將 TPU v5e/v5p 切分為可動態彈性擴充的雲端算力切片，性價比比 AWS/Azure 同級 GPU 便宜 40%~50%。",
+            workload: "全球數萬家 AI 新創與企業客戶"
+          },
+          {
+            name: "外部重量級標竿客戶 (External Flagship Clients)",
+            keyPlayer: "Apple (蘋果) · Anthropic · Midjourney · Character.ai",
+            role: "① 蘋果 (Apple)：官方論文證實 Apple Intelligence 基礎大模型 (AFM) 是以 Google Cloud 上的數千顆 TPU v4/v5p 訓練；② Anthropic：將 Claude 模型部分訓練與推論部署於 Google TPU；③ Midjourney：全球最大 AI 生圖平台全面採用 TPU v5e；④ Character.ai：採用 TPU 支撐數百億次極低延遲對話推論。",
+            workload: "世界級前沿 AI 巨頭指名採用"
+          }
+        ]
+      }
+    ],
+
+    // Google TPU 三大核心技術殺手鐧 (Architectural Innovations)
+    innovations: [
+      {
+        title: "① 脈動陣列 (Systolic Array) 矩陣乘法單元 (MXU)",
+        desc: "不同於 GPU 依賴複雜的指令解碼與快取記憶體頻繁讀寫，TPU 採用脈動陣列架構：數據像血液般在陣列乘法器中連續流動計算，無需將中間值反覆存入暫存器，在進行大模型 Attention 矩陣乘法時，具備極致的能耗比 (Compute/Watt) 與矽晶片利用率！"
+      },
+      {
+        title: "② 自研光電路開關 (Optical Circuit Switch - OCS) 3D Torus 動態拓撲",
+        desc: "Google 自行研發的 OCS 是全世界唯一在超算集群中落地的全光交換技術！利用 2D MEMS 旋轉微反射鏡直接在光纖層面切換光路，沒有傳統電氣交換機昂貴耗電的光電轉換 (O-E-O)。當單卡故障時，OCS 能在毫秒級自動繞徑重組網路拓撲，集群可靠度大幅超越標準 InfiniBand！"
+      },
+      {
+        title: "③ 軟硬一體編譯器生態：XLA (Accelerated Linear Algebra) 與 JAX",
+        desc: "硬體只是半成品，軟體編譯器才是護城河！Google 打造的 XLA 專門將 TensorFlow 與 JAX 代碼圖編譯並融合 (Kernel Fusion) 為 TPU 最優化硬體指令，避免了算子重複訪存，徹底擊碎了輝達 CUDA 的軟體壟斷壁壘！"
+      }
+    ]
   }
 };

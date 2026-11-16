@@ -252,10 +252,177 @@ function renderCybersecuritySection() {
 
 function renderCspChipsSection() {
   const container = document.getElementById('cspChipsContainer');
-  const data = window.ASIC_SUPPLY_CHAIN_DATA;
-  if (!container || !data) return;
+  const fullData = window.ASIC_SUPPLY_CHAIN_DATA;
+  const tpuData = fullData?.googleTpuSupplyChain;
+  if (!container || !fullData) return;
+
+  const taiwanTpuBeneficiaries = [
+    { name: "廣達 (2382 / QCT)", role: "TPU 白牌 AI 伺服器整機與機櫃主供 (深耕 Google 超過 15 年，主導 TPU Pod 組裝)", share: "TPU 整機市佔第一 (>65%)", margin: "8.5% ~ 10%", ticker: "2382.TW" },
+    { name: "台積電 (2330 / TSM)", role: "TPU 歷代晶片 100% 獨家先進晶圓製造 (v4 7nm, v5 5nm/4nm, v6 4nm) 與 CoWoS 封裝", share: "獨家製造 (100%)", margin: "54% ~ 58%", ticker: "2330.TW" },
+    { name: "雙鴻 (3324)", role: "TPU 水冷板 (Cold Plate) 與液冷系統核心主力，單卡解熱能力突破 700W~1000W", share: "水冷散熱雙雄", margin: "25% ~ 28%", ticker: "3324.TW" },
+    { name: "奇鋐 (3017)", role: "TPU 機櫃級冷卻液分配系統 (CDU) 與 3D VC / 水冷模組關鍵代工", share: "機櫃水冷主力", margin: "22% ~ 25%", ticker: "3017.TW" },
+    { name: "欣興 (3037)", role: "TPU 晶片高階 ABF 載板第一主供 (大尺寸 16~20 層高密度載板)", share: "全球載板龍頭", margin: "25% ~ 30%", ticker: "3037.TW" },
+    { name: "金像電 (2368)", role: "TPU 主板 (UBB/OAM) 與 OCS 交換機背板超高層數 PCB", share: "AI PCB 霸主", margin: "28% ~ 32%", ticker: "2368.TW" },
+    { name: "台光電 (2383)", role: "極低損耗 (Ultra Low Loss) CCL 銅箔基板，獨家吃下高速訊號板材", share: "高階 CCL 龍頭", margin: "28% ~ 30%", ticker: "2383.TW" },
+    { name: "聯鈞 (3450)", role: "自研光開關 (OCS) 矽光子雷射封裝與光通訊收發模組", share: "矽光子戰略受惠", margin: "20% ~ 24%", ticker: "3450.TW" }
+  ];
 
   container.innerHTML = `
+    <!-- TPU 旗艦專用頂部 Banner -->
+    <div class="tpu-hero-banner">
+      <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:16px;">
+        <div style="max-width:850px;">
+          <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
+            <span style="background:#4285f4; color:#fff; font-size:11px; padding:3px 8px; border-radius:4px; font-weight:800;">GOOGLE TPU SPECIAL</span>
+            <span style="color:#34d399; font-size:11px; font-family:var(--font-mono); font-weight:bold;">100% 支撐 GEMINI 2.0 基礎大模型</span>
+          </div>
+          <h2 style="font-size:22px; font-weight:900; color:#fff; line-height:1.3;">
+            ${tpuData?.title || 'Google TPU 全球上下游產業鏈旗艦全景地圖'}
+          </h2>
+          <p style="font-size:12.5px; color:#cbd5e1; margin-top:8px; line-height:1.65;">
+            ${tpuData?.overview || ''}
+          </p>
+        </div>
+        <div style="background:rgba(15,23,42,0.85); border:1px solid rgba(66,133,244,0.4); border-radius:10px; padding:12px 18px; font-size:11px; text-align:right;">
+          <div style="color:#94a3b8;">累計晶片出貨</div>
+          <div style="font-size:18px; font-weight:900; color:#4285f4;">> 2,000,000 顆</div>
+          <div style="color:#34d399; font-size:10.5px; margin-top:2px;">單一 Pod 算力高達 8,960 顆直連</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 1. Google TPU 歷代進化時間軸 (Timeline) -->
+    <div style="margin-bottom:28px;">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+        <h3 style="font-size:16px; font-weight:800; color:#fff; display:flex; align-items:center; gap:8px;">
+          <span>⏳</span> Google TPU 十年架構演進史 (From TPU v1 to TPU v6 Trillium)
+        </h3>
+        <span style="font-size:11px; color:#94a3b8;">橫跨 28nm 至 4nm / 自研全光開關 OCS 顛覆</span>
+      </div>
+      <div class="tpu-timeline-scroll">
+        ${tpuData?.generations.map(g => `
+          <div class="tpu-gen-card ${g.gen.includes('v6') ? 'active-gen' : ''}">
+            <div class="tpu-gen-badge">
+              <span>${g.gen}</span>
+              <span class="tpu-gen-pill">${g.year}</span>
+            </div>
+            <div style="font-size:11px; color:#06b6d4; font-family:var(--font-mono); margin-bottom:6px;">
+              🏭 ${g.node}
+            </div>
+            <div style="font-size:11px; color:#cbd5e1; margin-bottom:4px;">
+              💾 記憶體：<strong style="color:#fff;">${g.memory}</strong>
+            </div>
+            <div style="font-size:11px; color:#cbd5e1; margin-bottom:4px;">
+              ❄️ 散熱：<span style="color:${g.cooling.includes('水冷') ? '#06b6d4' : '#94a3b8'};">${g.cooling}</span>
+            </div>
+            <div style="font-size:11px; color:#c084fc; margin-bottom:8px; font-family:var(--font-mono);">
+              🌐 叢集：${g.scale}
+            </div>
+            <div style="font-size:10.5px; color:#94a3b8; background:rgba(15,23,42,0.6); padding:6px; border-radius:4px; line-height:1.4;">
+              🎯 ${g.workload}
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+
+    <!-- 2. Google TPU 上中下游三大層級核心地圖 -->
+    <div class="tpu-tiers-grid">
+      ${tpuData?.tiers.map(tier => `
+        <div class="tpu-tier-container" style="border-top:3px solid ${tier.color};">
+          <div class="tpu-tier-header">
+            <div>
+              <h4 style="font-size:17px; font-weight:900; color:#fff;">${tier.titleZh}</h4>
+              <div style="font-size:11px; color:#94a3b8; font-family:var(--font-mono);">${tier.titleEn}</div>
+            </div>
+            <span style="font-size:11px; padding:3px 10px; border-radius:12px; background:rgba(255,255,255,0.06); color:${tier.color}; font-weight:bold;">
+              ${tier.categories.length} 個關鍵環節
+            </span>
+          </div>
+          <p style="font-size:12px; color:#cbd5e1; margin-bottom:16px; background:rgba(15,23,42,0.6); padding:8px 12px; border-radius:6px; border-left:3px solid ${tier.color};">
+            ${tier.description}
+          </p>
+
+          <div class="tpu-categories-grid">
+            ${tier.categories.map(c => `
+              <div class="tpu-cat-card">
+                <div class="tpu-cat-header">
+                  <div>
+                    <div style="font-size:11px; color:#06b6d4; font-weight:bold;">${c.name}</div>
+                    <div class="tpu-key-partner">${c.keyPlayer}</div>
+                  </div>
+                  ${c.share ? `<span class="tpu-share-tag">${c.share}</span>` : ''}
+                </div>
+                <p style="font-size:11.5px; color:#cbd5e1; line-height:1.55; margin-bottom:10px;">
+                  ${c.role}
+                </p>
+                ${c.workload ? `
+                  <div style="font-size:10.5px; color:#94a3b8; background:rgba(15,23,42,0.8); padding:6px 8px; border-radius:4px; margin-top:auto;">
+                    ⚡ <strong>負載：</strong>${c.workload}
+                  </div>
+                ` : ''}
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `).join('')}
+    </div>
+
+    <!-- 3. Google TPU 三大核心技術殺手鐧 -->
+    <div style="margin-bottom:30px;">
+      <h3 style="font-size:16px; font-weight:800; color:#fff; display:flex; align-items:center; gap:8px; margin-bottom:14px;">
+        <span>🚀</span> Google TPU 三大核心技術殺手鐧 (Architectural Innovations)
+      </h3>
+      <div class="tpu-innovations-grid">
+        ${tpuData?.innovations.map(inno => `
+          <div class="tpu-inno-card">
+            <h4 style="font-size:14.5px; font-weight:800; color:#fff; margin-bottom:8px;">${inno.title}</h4>
+            <p style="font-size:12px; color:#cbd5e1; line-height:1.6;">${inno.desc}</p>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+
+    <!-- 4. 台灣 TPU 核心概念股受惠排行榜 -->
+    <div class="arch-table-card" style="margin-bottom:30px;">
+      <div style="padding:16px 20px; background:#09101d; border-bottom:1px solid var(--border-subtle); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+        <div>
+          <h3 style="font-size:16px; font-weight:900; color:#fff; display:flex; align-items:center; gap:8px;">
+            <span style="color:#06b6d4;">🇹🇼</span> 台灣 Google TPU 核心概念股與營收受惠純度排行榜
+          </h3>
+          <p style="font-size:11px; color:#94a3b8; margin-top:2px;">
+            從廣達伺服器整機、台積電先進製造、雙鴻/奇鋐水冷到金像電 PCB 與聯鈞矽光子
+          </p>
+        </div>
+        <span class="fin-badge-green">TPU 供應鏈主力</span>
+      </div>
+      <div class="arch-table-wrapper">
+        <table class="arch-spec-table">
+          <thead>
+            <tr>
+              <th>公司名稱 (代號)</th>
+              <th>在 Google TPU 生態中的關鍵角色</th>
+              <th style="color:#10b981;">供應鏈市佔 / 純度</th>
+              <th style="color:#06b6d4;">毛利率區間</th>
+              <th style="color:#ffd700;">戰略受惠評估</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${taiwanTpuBeneficiaries.map(tb => `
+              <tr>
+                <td><strong style="color:#fff; font-size:13px;">${tb.name}</strong></td>
+                <td style="font-size:11.5px; color:#cbd5e1; max-width:320px; white-space:normal; line-height:1.4;">${tb.role}</td>
+                <td style="color:#10b981; font-weight:bold; font-family:var(--font-mono);">${tb.share}</td>
+                <td style="color:#06b6d4; font-family:var(--font-mono); font-weight:bold;">${tb.margin}</td>
+                <td><span class="fin-badge-purple">核心受惠冠軍</span></td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 5. 五大 CSP 自研晶片矩陣橫向大對決 -->
     <div class="arch-table-card">
       <div style="padding:16px 20px; background:#09101d; border-bottom:1px solid var(--border-subtle); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
         <div>
@@ -283,7 +450,7 @@ function renderCspChipsSection() {
             </tr>
           </thead>
           <tbody>
-            ${data.cspChipMatrix.map(m => `
+            ${fullData.cspChipMatrix.map(m => `
               <tr>
                 <td><strong style="color:#fff; font-size:13px;">${m.name}</strong></td>
                 <td style="color:#cbd5e1;">${m.owner}</td>
