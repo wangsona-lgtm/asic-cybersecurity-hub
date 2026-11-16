@@ -1,0 +1,278 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 780" width="100%" height="auto" style="background:#070b14; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Microsoft JhengHei', sans-serif;">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0f1d"/>
+      <stop offset="100%" stop-color="#050811"/>
+    </linearGradient>
+    <linearGradient id="blueGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+    <marker id="arrowCyan" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#06b6d4" />
+    </marker>
+    <marker id="arrowGreen" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#10b981" />
+    </marker>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="1100" height="780" fill="url(#bgGrad)"/>
+  
+  <!-- 網格點綴 -->
+  <g opacity="0.08" stroke="#ffffff" stroke-width="1">
+    <line x1="0" y1="120" x2="1100" y2="120"/>
+    <line x1="0" y1="710" x2="1100" y2="710"/>
+    <line x1="380" y1="120" x2="380" y2="710"/>
+    <line x1="740" y1="120" x2="740" y2="710"/>
+  </g>
+
+  <!-- 頂部裝飾條 -->
+  <rect x="0" y="0" width="1100" height="4" fill="url(#blueGlow)"/>
+
+  <!-- 頂部 Header -->
+  <g transform="translate(30, 25)">
+    <!-- Badges -->
+    <rect x="0" y="0" width="150" height="24" rx="4" fill="rgba(59,130,246,0.2)" stroke="#3b82f6" stroke-width="1"/>
+    <text x="75" y="16" fill="#93c5fd" font-size="11" font-weight="bold" text-anchor="middle">GOOGLE TPU SPECIAL</text>
+
+    <rect x="160" y="0" width="220" height="24" rx="4" fill="rgba(16,185,129,0.2)" stroke="#10b981" stroke-width="1"/>
+    <text x="270" y="16" fill="#6ee7b7" font-size="11" font-weight="bold" text-anchor="middle">100% 支撐 GEMINI 2.0 大模型</text>
+
+    <rect x="390" y="0" width="230" height="24" rx="4" fill="rgba(245,158,11,0.2)" stroke="#f59e0b" stroke-width="1"/>
+    <text x="505" y="16" fill="#fcd34d" font-size="11" font-weight="bold" text-anchor="middle">🔥 聯發科 2454 · 次世代雙供應商</text>
+
+    <!-- 標題 -->
+    <text x="0" y="52" fill="#ffffff" font-size="22" font-weight="900">Google TPU 全球上下游產業鏈旗艦全景圖</text>
+    <text x="0" y="74" fill="#94a3b8" font-size="12">涵蓋台積電獨家先進晶圓製造、博通與聯發科雙供設計服務、廣達 ODM 整櫃組裝與蘋果 Apple Intelligence 算力</text>
+
+    <!-- 右上角 KPI -->
+    <rect x="880" y="0" width="160" height="74" rx="8" fill="#0f172a" stroke="#1e293b" stroke-width="1"/>
+    <text x="960" y="22" fill="#94a3b8" font-size="11" text-anchor="middle">全球 TPU 累計出貨</text>
+    <text x="960" y="46" fill="#38bdf8" font-size="20" font-weight="900" text-anchor="middle">> 200 萬顆</text>
+    <text x="960" y="64" fill="#34d399" font-size="10" font-weight="bold" text-anchor="middle">單一 Pod 8,960 顆直連</text>
+  </g>
+
+  <!-- 連接箭頭 -->
+  <g stroke-width="2.5" fill="none">
+    <!-- Col 1 -> Col 2 -->
+    <path d="M 360 230 L 395 230" stroke="#06b6d4" marker-end="url(#arrowCyan)"/>
+    <path d="M 360 380 L 395 380" stroke="#06b6d4" marker-end="url(#arrowCyan)"/>
+    <path d="M 360 540 L 395 540" stroke="#06b6d4" marker-end="url(#arrowCyan)"/>
+
+    <!-- Col 2 -> Col 3 -->
+    <path d="M 720 230 L 755 230" stroke="#10b981" marker-end="url(#arrowGreen)"/>
+    <path d="M 720 380 L 755 380" stroke="#10b981" marker-end="url(#arrowGreen)"/>
+    <path d="M 720 540 L 755 540" stroke="#10b981" marker-end="url(#arrowGreen)"/>
+  </g>
+
+  <!-- ==================== 1. 上游 COLUMN ==================== -->
+  <g transform="translate(30, 120)">
+    <!-- 欄位背景 -->
+    <rect x="0" y="0" width="330" height="570" rx="10" fill="#0c1222" stroke="#1e293b" stroke-width="1"/>
+    <rect x="0" y="0" width="330" height="36" rx="10" fill="#181335"/>
+    <rect x="0" y="28" width="330" height="8" fill="#181335"/>
+    <rect x="0" y="0" width="330" height="3" fill="#8b5cf6"/>
+    <text x="165" y="23" fill="#c084fc" font-size="13" font-weight="bold" text-anchor="middle">🧬 1. 上游：晶圓 / HBM / 光開關 / IP</text>
+
+    <!-- 卡片 1: 台積電 -->
+    <g transform="translate(12, 48)">
+      <rect x="0" y="0" width="306" height="115" rx="6" fill="#131c31" stroke="#8b5cf6" stroke-width="1.5"/>
+      <rect x="0" y="0" width="4" height="115" fill="#8b5cf6"/>
+      <text x="14" y="22" fill="#ffffff" font-size="14" font-weight="900">👑 台積電 (TSMC 2330 / TSM)</text>
+      <text x="14" y="40" fill="#a78bfa" font-size="11" font-weight="bold">100% 獨家製造 (4nm/5nm/7nm) + CoWoS</text>
+      <text x="14" y="60" fill="#94a3b8" font-size="11">TPU v4/v5/v6 歷代唯一製造商，以 CoWoS-S</text>
+      <text x="14" y="78" fill="#94a3b8" font-size="11">2.5D 先進封裝整合運算晶粒與 HBM 記憶體。</text>
+      <rect x="14" y="90" width="130" height="18" rx="3" fill="#0f172a" stroke="#10b981" stroke-width="1"/>
+      <text x="79" y="103" fill="#34d399" font-size="10" font-weight="bold" text-anchor="middle">獨家製造 100% · 毛利 55%</text>
+    </g>
+
+    <!-- 卡片 2: SK 海力士 -->
+    <g transform="translate(12, 175)">
+      <rect x="0" y="0" width="306" height="115" rx="6" fill="#131c31" stroke="#334155" stroke-width="1"/>
+      <rect x="0" y="0" width="4" height="115" fill="#8b5cf6"/>
+      <text x="14" y="22" fill="#ffffff" font-size="14" font-weight="900">💾 SK 海力士 / 三星電子</text>
+      <text x="14" y="40" fill="#38bdf8" font-size="11" font-weight="bold">高頻寬記憶體 (HBM3 / HBM2e 堆疊)</text>
+      <text x="14" y="60" fill="#94a3b8" font-size="11">SK 海力士主供 TPU v5p (95GB) 與 v6 (32GB)，</text>
+      <text x="14" y="78" fill="#94a3b8" font-size="11">頻寬高達 2.5 TB/s 直通脈動陣列矩陣核心。</text>
+      <rect x="14" y="90" width="145" height="18" rx="3" fill="#0f172a" stroke="#38bdf8" stroke-width="1"/>
+      <text x="86" y="103" fill="#38bdf8" font-size="10" font-weight="bold" text-anchor="middle">SK 海力士主供 >70% · 2.5TB/s</text>
+    </g>
+
+    <!-- 卡片 3: OCS 光開關 -->
+    <g transform="translate(12, 302)">
+      <rect x="0" y="0" width="306" height="115" rx="6" fill="#131c31" stroke="#334155" stroke-width="1"/>
+      <rect x="0" y="0" width="4" height="115" fill="#8b5cf6"/>
+      <text x="14" y="22" fill="#ffffff" font-size="14" font-weight="900">⚡ Google 自研光開關 (OCS)</text>
+      <text x="14" y="40" fill="#fcd34d" font-size="11" font-weight="bold">2D MEMS 旋轉微鏡全光路由 · 聯鈞 (3450)</text>
+      <text x="14" y="60" fill="#94a3b8" font-size="11">Google 獨門殺手鐧！直接以微鏡面反射光路，</text>
+      <text x="14" y="78" fill="#94a3b8" font-size="11">零光電光轉換損耗，聯鈞負責關鍵矽光子封裝。</text>
+      <rect x="14" y="90" width="140" height="18" rx="3" fill="#0f172a" stroke="#f59e0b" stroke-width="1"/>
+      <text x="84" y="103" fill="#fcd34d" font-size="10" font-weight="bold" text-anchor="middle">全光路無損 · 聯鈞 (3450)</text>
+    </g>
+
+    <!-- 卡片 4: EDA & IP -->
+    <g transform="translate(12, 429)">
+      <rect x="0" y="0" width="306" height="125" rx="6" fill="#131c31" stroke="#334155" stroke-width="1"/>
+      <rect x="0" y="0" width="4" height="125" fill="#8b5cf6"/>
+      <text x="14" y="22" fill="#ffffff" font-size="14" font-weight="900">💻 新思 Synopsys / 益華 / Arm</text>
+      <text x="14" y="40" fill="#c084fc" font-size="11" font-weight="bold">EDA 邏輯合成驗證軟體與 Host 輔助 IP</text>
+      <text x="14" y="60" fill="#94a3b8" font-size="11">提供百億電晶體邏輯驗證、訊號完整性模擬及</text>
+      <text x="14" y="78" fill="#94a3b8" font-size="11">Arm Host 處理器輔助架構 IP，確保一次流片。</text>
+      <rect x="14" y="96" width="135" height="18" rx="3" fill="#0f172a" stroke="#a855f7" stroke-width="1"/>
+      <text x="81" y="109" fill="#c084fc" font-size="10" font-weight="bold" text-anchor="middle">EDA 市佔 >90% · 軟體高毛利</text>
+    </g>
+  </g>
+
+  <!-- ==================== 2. 中游 COLUMN ==================== -->
+  <g transform="translate(390, 120)">
+    <rect x="0" y="0" width="330" height="570" rx="10" fill="#0c1222" stroke="#1e293b" stroke-width="1"/>
+    <rect x="0" y="0" width="330" height="36" rx="10" fill="#0d2433"/>
+    <rect x="0" y="28" width="330" height="8" fill="#0d2433"/>
+    <rect x="0" y="0" width="330" height="3" fill="#06b6d4"/>
+    <text x="165" y="23" fill="#22d3ee" font-size="13" font-weight="bold" text-anchor="middle">⚡ 2. 中游：設計服務 · 水冷 · 廣達 ODM</text>
+
+    <!-- 卡片 1: 博通 -->
+    <g transform="translate(12, 48)">
+      <rect x="0" y="0" width="306" height="78" rx="6" fill="#131c31" stroke="#334155" stroke-width="1"/>
+      <rect x="0" y="0" width="4" height="78" fill="#06b6d4"/>
+      <text x="14" y="20" fill="#ffffff" font-size="13.5" font-weight="900">⭐ 博通 (Broadcom / AVGO)</text>
+      <text x="14" y="36" fill="#22d3ee" font-size="10.5" font-weight="bold">十年核心實體設計 Turnkey · 現行首供 >60%</text>
+      <text x="14" y="52" fill="#94a3b8" font-size="10.5">負責實體佈局並整合自研 224G SerDes 高速通訊。</text>
+      <rect x="14" y="58" width="135" height="15" rx="2" fill="#0f172a" stroke="#10b981" stroke-width="1"/>
+      <text x="81" y="69" fill="#34d399" font-size="9.5" font-weight="bold" text-anchor="middle">TPU 客製首供 · 毛利 75%+</text>
+    </g>
+
+    <!-- 卡片 2: 聯發科 (重點加亮) -->
+    <g transform="translate(12, 134)">
+      <rect x="0" y="0" width="306" height="84" rx="6" fill="#1e1828" stroke="#f59e0b" stroke-width="2" filter="url(#glow)"/>
+      <rect x="0" y="0" width="306" height="84" rx="6" fill="#161528" stroke="#f59e0b" stroke-width="1.5"/>
+      <rect x="0" y="0" width="5" height="84" fill="#f59e0b"/>
+      <text x="14" y="20" fill="#fef08a" font-size="14" font-weight="900">🔥 聯發科 (MediaTek / 2454.TW)</text>
+      <text x="14" y="37" fill="#fbbf24" font-size="10.5" font-weight="bold">Google 次世代 TPU (v7) 雙供 (Dual Sourcing) 挑戰者</text>
+      <text x="14" y="53" fill="#e2e8f0" font-size="10.5">Google 去博通化關鍵先鋒！手握自研 224G SerDes IP</text>
+      <text x="14" y="68" fill="#e2e8f0" font-size="10.5">與台積電 3nm/2nm 先進產能，強勢切入企業級晶片！</text>
+      <rect x="175" y="6" width="120" height="16" rx="3" fill="#78350f" stroke="#f59e0b" stroke-width="1"/>
+      <text x="235" y="18" fill="#fef08a" font-size="9.5" font-weight="bold" text-anchor="middle">次世代雙供核心主力</text>
+    </g>
+
+    <!-- 卡片 3: 廣達電腦 -->
+    <g transform="translate(12, 226)">
+      <rect x="0" y="0" width="306" height="78" rx="6" fill="#131c31" stroke="#38bdf8" stroke-width="1.5"/>
+      <rect x="0" y="0" width="4" height="78" fill="#06b6d4"/>
+      <text x="14" y="20" fill="#ffffff" font-size="13.5" font-weight="900">👑 廣達電腦 / 雲達科技 (2382.TW)</text>
+      <text x="14" y="36" fill="#38bdf8" font-size="10.5" font-weight="bold">TPU 白牌 AI 伺服器整機與機櫃主供 (>65%)</text>
+      <text x="14" y="52" fill="#94a3b8" font-size="10.5">合作超 15 年！主導主板打件、水冷配置與 Pod 組裝。</text>
+      <rect x="14" y="58" width="135" height="15" rx="2" fill="#0f172a" stroke="#38bdf8" stroke-width="1"/>
+      <text x="81" y="69" fill="#38bdf8" font-size="9.5" font-weight="bold" text-anchor="middle">整機代工市佔第一 (>65%)</text>
+    </g>
+
+    <!-- 卡片 4: 雙鴻/奇鋐水冷 -->
+    <g transform="translate(12, 312)">
+      <rect x="0" y="0" width="306" height="74" rx="6" fill="#131c31" stroke="#334155" stroke-width="1"/>
+      <rect x="0" y="0" width="4" height="74" fill="#06b6d4"/>
+      <text x="14" y="20" fill="#ffffff" font-size="13" font-weight="900">❄️ 雙鴻 (3324) / 奇鋐 (3017)</text>
+      <text x="14" y="36" fill="#67e8f9" font-size="10.5" font-weight="bold">全液冷水冷板 (Cold Plate) 與機櫃級 CDU</text>
+      <text x="14" y="52" fill="#94a3b8" font-size="10.5">TPU v3 起強制全液冷，單晶片解熱突破 1000W。</text>
+      <rect x="14" y="56" width="130" height="15" rx="2" fill="#0f172a" stroke="#06b6d4" stroke-width="1"/>
+      <text x="79" y="67" fill="#67e8f9" font-size="9.5" font-weight="bold" text-anchor="middle">水冷雙雄 · 解熱 >1000W</text>
+    </g>
+
+    <!-- 卡片 5: 欣興 ABF -->
+    <g transform="translate(12, 394)">
+      <rect x="0" y="0" width="306" height="74" rx="6" fill="#131c31" stroke="#334155" stroke-width="1"/>
+      <rect x="0" y="0" width="4" height="74" fill="#06b6d4"/>
+      <text x="14" y="20" fill="#ffffff" font-size="13" font-weight="900">📦 欣興 (3037) / 揖斐電 (Ibiden)</text>
+      <text x="14" y="36" fill="#c084fc" font-size="10.5" font-weight="bold">16~20 層大尺寸高密度 ABF 載板 (第一主供)</text>
+      <text x="14" y="52" fill="#94a3b8" font-size="10.5">承載超大 TPU 晶粒與多顆 HBM 堆疊之 CoWoS 基板。</text>
+      <rect x="14" y="56" width="130" height="15" rx="2" fill="#0f172a" stroke="#c084fc" stroke-width="1"/>
+      <text x="79" y="67" fill="#c084fc" font-size="9.5" font-weight="bold" text-anchor="middle">全球 ABF 龍頭 · 載板主供</text>
+    </g>
+
+    <!-- 卡片 6: 金像電/台光電/台達電 -->
+    <g transform="translate(12, 476)">
+      <rect x="0" y="0" width="306" height="82" rx="6" fill="#131c31" stroke="#334155" stroke-width="1"/>
+      <rect x="0" y="0" width="4" height="82" fill="#06b6d4"/>
+      <text x="14" y="20" fill="#ffffff" font-size="13" font-weight="900">🔌 金像電 (2368) / 台光電 / 台達電</text>
+      <text x="14" y="36" fill="#34d399" font-size="10.5" font-weight="bold">超高層數 PCB 主板 · 極低損耗 CCL · 鈦金電源</text>
+      <text x="14" y="52" fill="#94a3b8" font-size="10.5">金像電供應運算板與背板；台光電供應超低損耗 CCL；</text>
+      <text x="14" y="68" fill="#94a3b8" font-size="10.5">台達電 (2308) 供應 48V/12V 鈦金電源模組與銅排。</text>
+    </g>
+  </g>
+
+  <!-- ==================== 3. 下游 COLUMN ==================== -->
+  <g transform="translate(750, 120)">
+    <rect x="0" y="0" width="320" height="570" rx="10" fill="#0c1222" stroke="#1e293b" stroke-width="1"/>
+    <rect x="0" y="0" width="320" height="36" rx="10" fill="#0f261e"/>
+    <rect x="0" y="28" width="320" height="8" fill="#0f261e"/>
+    <rect x="0" y="0" width="320" height="3" fill="#10b981"/>
+    <text x="160" y="23" fill="#34d399" font-size="13" font-weight="bold" text-anchor="middle">☁️ 3. 下游：GCP 算力雲 · Gemini · 頂級客戶</text>
+
+    <!-- 卡片 1: GCP Pods -->
+    <g transform="translate(12, 48)">
+      <rect x="0" y="0" width="296" height="96" rx="6" fill="#131c31" stroke="#10b981" stroke-width="1.5"/>
+      <rect x="0" y="0" width="4" height="96" fill="#10b981"/>
+      <text x="14" y="20" fill="#ffffff" font-size="13.5" font-weight="900">🌐 GCP Cloud TPU 超級算力雲</text>
+      <text x="14" y="38" fill="#34d399" font-size="11" font-weight="bold">8,960 顆晶片 3D Torus 超級網格集群</text>
+      <text x="14" y="56" fill="#94a3b8" font-size="11">透過 GKE 提供彈性切片租賃，性價比比同級</text>
+      <text x="14" y="74" fill="#94a3b8" font-size="11">GPU 便宜 40%~50%，全球新創爭相採用。</text>
+      <rect x="14" y="78" width="130" height="14" rx="2" fill="#0f172a" stroke="#10b981" stroke-width="1"/>
+      <text x="79" y="89" fill="#34d399" font-size="9" font-weight="bold" text-anchor="middle">頂尖 AI 超算雲 · 高續約率</text>
+    </g>
+
+    <!-- 卡片 2: Gemini 2.0 -->
+    <g transform="translate(12, 154)">
+      <rect x="0" y="0" width="296" height="96" rx="6" fill="#131c31" stroke="#334155" stroke-width="1"/>
+      <rect x="0" y="0" width="4" height="96" fill="#10b981"/>
+      <text x="14" y="20" fill="#ffffff" font-size="13.5" font-weight="900">🧠 Google DeepMind (Gemini)</text>
+      <text x="14" y="38" fill="#fcd34d" font-size="11" font-weight="bold">Gemini 1.0/1.5/2.0 全系列前沿基礎大模型</text>
+      <text x="14" y="56" fill="#94a3b8" font-size="11">100% 在數萬顆 TPU Pod 上預訓練與微調完成，</text>
+      <text x="14" y="74" fill="#94a3b8" font-size="11">完全 0% 依賴輝達 GPU，無外部利潤溢價！</text>
+      <rect x="14" y="78" width="130" height="14" rx="2" fill="#0f172a" stroke="#f59e0b" stroke-width="1"/>
+      <text x="79" y="89" fill="#fcd34d" font-size="9" font-weight="bold" text-anchor="middle">自研心臟 · 100% TPU 訓練</text>
+    </g>
+
+    <!-- 卡片 3: 蘋果 Apple Intelligence -->
+    <g transform="translate(12, 260)">
+      <rect x="0" y="0" width="296" height="96" rx="6" fill="#131c31" stroke="#38bdf8" stroke-width="1.5"/>
+      <rect x="0" y="0" width="4" height="96" fill="#10b981"/>
+      <text x="14" y="20" fill="#ffffff" font-size="13.5" font-weight="900">🍏 蘋果 (Apple Intelligence)</text>
+      <text x="14" y="38" fill="#38bdf8" font-size="11" font-weight="bold">官方論文證實：以 GCP TPU 訓練基礎模型</text>
+      <text x="14" y="56" fill="#94a3b8" font-size="11">蘋果官方技術論文明確證實：Apple Intelligence</text>
+      <text x="14" y="74" fill="#94a3b8" font-size="11">基礎模型 (AFM) 全面由 GCP TPU v4/v5p 訓練！</text>
+      <rect x="14" y="78" width="135" height="14" rx="2" fill="#0f172a" stroke="#38bdf8" stroke-width="1"/>
+      <text x="81" y="89" fill="#38bdf8" font-size="9" font-weight="bold" text-anchor="middle">市值第一巨頭指名採用</text>
+    </g>
+
+    <!-- 卡片 4: 搜尋與 YouTube -->
+    <g transform="translate(12, 366)">
+      <rect x="0" y="0" width="296" height="96" rx="6" fill="#131c31" stroke="#334155" stroke-width="1"/>
+      <rect x="0" y="0" width="4" height="96" fill="#10b981"/>
+      <text x="14" y="20" fill="#ffffff" font-size="13.5" font-weight="900">🔍 Google 搜尋 &amp; YouTube</text>
+      <text x="14" y="38" fill="#34d399" font-size="11" font-weight="bold">每日數十億次 AI Overviews 與推薦排序</text>
+      <text x="14" y="56" fill="#94a3b8" font-size="11">搜尋問答、視頻推薦矩陣與 Gmail 智慧撰寫</text>
+      <text x="14" y="74" fill="#94a3b8" font-size="11">全運行於 TPU，每年節省數十億美元租賃成本。</text>
+    </g>
+
+    <!-- 卡片 5: 獨角獸代表 -->
+    <g transform="translate(12, 472)">
+      <rect x="0" y="0" width="296" height="86" rx="6" fill="#131c31" stroke="#334155" stroke-width="1"/>
+      <rect x="0" y="0" width="4" height="86" fill="#10b981"/>
+      <text x="14" y="20" fill="#ffffff" font-size="13" font-weight="900">🤖 Anthropic · Midjourney</text>
+      <text x="14" y="38" fill="#c084fc" font-size="10.5" font-weight="bold">Claude 3.5 叢集與全球最大 AI 生圖平台</text>
+      <text x="14" y="56" fill="#94a3b8" font-size="10.5">Anthropic 萬卡訓練；Midjourney 全面以 TPU v5e</text>
+      <text x="14" y="70" fill="#94a3b8" font-size="10.5">生成全球數億張 AI 圖像，算力高黏著度。</text>
+    </g>
+  </g>
+
+  <!-- ==================== 底部總結 BANNER ==================== -->
+  <g transform="translate(30, 705)">
+    <rect x="0" y="0" width="1040" height="55" rx="8" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+    <text x="20" y="24" fill="#fcd34d" font-size="12" font-weight="bold">🇹🇼 台灣 Google TPU 核心概念股受惠受體圖譜 (含聯發科次世代雙供)：</text>
+    <text x="20" y="44" fill="#e2e8f0" font-size="11.5">🔥 聯發科 (2454 / 次世代雙供) ｜ 廣達 (2382 / 整機 >65%) ｜ 台積電 (2330 / 獨家 100%) ｜ 雙鴻/奇鋐 (全水冷) ｜ 欣興 (ABF 載板) ｜ 金像電/台光電 (高速材料) ｜ 聯鈞 (OCS 矽光子)</text>
+  </g>
+</svg>
