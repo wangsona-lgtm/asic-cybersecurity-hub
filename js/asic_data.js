@@ -474,17 +474,24 @@ window.ASIC_SUPPLY_CHAIN_DATA = {
       },
       {
         tierId: "tpu_midstream",
-        titleZh: "⚡ 中游：設計服務 (Broadcom)、高階載板、水冷散熱與伺服器 ODM 整櫃",
-        titleEn: "Midstream: Broadcom Turnkey, ABF Substrate, Liquid Cooling & Quanta ODM",
+        titleZh: "⚡ 中游：設計服務 (Broadcom+聯發科)、高階載板、水冷散熱與伺服器 ODM 整櫃",
+        titleEn: "Midstream: Broadcom & MediaTek Turnkey, Liquid Cooling & Quanta ODM",
         color: "#06b6d4",
         description: "將 Google 的 TPU 演算法藍圖轉化為資料中心機櫃的關鍵中樞，台灣供應鏈在此扮演絕對主導角色！",
         categories: [
           {
-            name: "ASIC 設計服務與實體轉譯 (Turnkey)",
+            name: "ASIC 設計服務霸主 (現行旗艦首供)",
             keyPlayer: "博通 (Broadcom / AVGO)",
             role: "Google TPU 最核心的十年共同研發夥伴！博通負責將 Google 的脈動陣列架構進行實體設計佈局 (Physical Design)，整合特製高速 SerDes 通訊單元，並協同台積電進行流片與封裝封測。",
-            share: "博通客製營收最大單一來源",
+            share: "現行 TPU 首供 (>60%)",
             ticker: "AVGO"
+          },
+          {
+            name: "Google 次世代 TPU 雙供應商核心挑戰者",
+            keyPlayer: "聯發科 (MediaTek / 2454.TW)",
+            role: "Google 為了擺脫博通高達 70% 的高毛利定價與產能綁定，積極啟動雙供應商 (Dual Sourcing) 策略，全力扶植聯發科！聯發科手握自研 224G SerDes 關鍵 IP、台積電 3nm/2nm 先進製程流片特權，搶攻次世代 TPU (v7) 與企業級 AI 加速晶片專案。",
+            share: "次世代雙供候選 · 224G SerDes 霸主",
+            ticker: "2454.TW"
           },
           {
             name: "白牌 AI 伺服器整機與機櫃 ODM 龍頭",

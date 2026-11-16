@@ -257,6 +257,7 @@ function renderCspChipsSection() {
   if (!container || !fullData) return;
 
   const taiwanTpuBeneficiaries = [
+    { name: "聯發科 (2454 / MediaTek)", role: "Google 去博通化關鍵先鋒！手握自研 224G SerDes 核心 IP 與台積電 3nm/2nm 先進流片特權，搶攻次世代 TPU (v7) 雙供 (Dual Sourcing) 體系", share: "次世代雙供核心候選", margin: "48% ~ 50%", ticker: "2454.TW" },
     { name: "廣達 (2382 / QCT)", role: "TPU 白牌 AI 伺服器整機與機櫃主供 (深耕 Google 超過 15 年，主導 TPU Pod 組裝)", share: "TPU 整機市佔第一 (>65%)", margin: "8.5% ~ 10%", ticker: "2382.TW" },
     { name: "台積電 (2330 / TSM)", role: "TPU 歷代晶片 100% 獨家先進晶圓製造 (v4 7nm, v5 5nm/4nm, v6 4nm) 與 CoWoS 封裝", share: "獨家製造 (100%)", margin: "54% ~ 58%", ticker: "2330.TW" },
     { name: "雙鴻 (3324)", role: "TPU 水冷板 (Cold Plate) 與液冷系統核心主力，單卡解熱能力突破 700W~1000W", share: "水冷散熱雙雄", margin: "25% ~ 28%", ticker: "3324.TW" },

@@ -355,12 +355,13 @@ class GoogleTpuVisualizer {
       tpu_up_eda: { id: "tpu_up_eda", stage: 1, name: "EDA 設計軟體與 IP", sub: "Synopsys / Cadence / Arm", col: 0, row: 3, margin: "80%+", role: "百億電晶體邏輯驗證、訊號完整性模擬及 Host 處理器輔助架構 IP", share: "雙寡頭市佔 >90%", tickers: ["SNPS", "CDNS", "ARM"] },
 
       // 2. 中游
-      tpu_mid_broadcom: { id: "tpu_mid_broadcom", stage: 2, name: "⭐ 博通 (Broadcom)", sub: "AVGO (十年核心設計夥伴)", col: 1, row: 0, margin: "75%+", role: "將 Google 脈動陣列藍圖進行實體佈局 (RTL to GDSII)，整合自研 224G SerDes 並協同台積電投片", share: "TPU 客製營收首要來源", tickers: ["AVGO"] },
-      tpu_mid_quanta: { id: "tpu_mid_quanta", stage: 2, name: "⭐ 廣達電腦 / 雲達 (QCT)", sub: "Quanta (2382.TW / 白牌 ODM 龍頭)", col: 1, row: 1, margin: "8.5% ~ 10%", role: "深耕 Google 超過 15 年，全面主導主板打件、水冷管路配置與 TPU Pod 8,960 顆晶片整機櫃集成組裝", share: "TPU 整機市佔第一 (>65%)", tickers: ["2382.TW"] },
-      tpu_mid_cooling: { id: "tpu_mid_cooling", stage: 2, name: "液冷散熱與 CDU 冷卻分配", sub: "雙鴻 (3324) / 奇鋐 (3017)", col: 1, row: 2, margin: "22% ~ 28%", role: "TPU v3 起強制全液冷，特製純銅水冷板 (Cold Plate) 與機櫃級 CDU，單晶片解熱能力突破 1000W", share: "台灣水冷散熱雙雄", tickers: ["3324.TW", "3017.TW"] },
-      tpu_mid_abf: { id: "tpu_mid_abf", stage: 2, name: "高階大尺寸 ABF 載板", sub: "欣興 (3037) / 揖斐電 (Ibiden)", col: 1, row: 3, margin: "25% ~ 30%", role: "承載超大面積 TPU 晶粒與多顆 HBM 堆疊之 16~20 層高密度載板，欣興為第一大主供", share: "全球載板雙雄", tickers: ["3037.TW", "4062.T"] },
-      tpu_mid_pcb: { id: "tpu_mid_pcb", stage: 2, name: "高層數 PCB 與低損耗 CCL", sub: "金像電 (2368) / 台光電 (2383)", col: 1, row: 4, margin: "28% ~ 32%", role: "供應 TPU 運算托盤 (Tray) 與 OCS 背板 PCB，台光電獨家供應 Ultra Low Loss 銅箔基板", share: "AI PCB 霸主", tickers: ["2368.TW", "2383.TW"] },
-      tpu_mid_power: { id: "tpu_mid_power", stage: 2, name: "高壓電源與 Busbar 線束", sub: "台達電 (2308) / 貿聯-KY (3665)", col: 1, row: 5, margin: "26% ~ 30%", role: "符合 Open Rack 規範之 48V/12V 鈦金級高轉換電源與大電流 Busbar 銅排匯流排", share: "電源線束龍頭", tickers: ["2308.TW", "3665.TW"] },
+      tpu_mid_broadcom: { id: "tpu_mid_broadcom", stage: 2, name: "⭐ 博通 (Broadcom)", sub: "AVGO (現行首供霸主)", col: 1, row: 0, margin: "75%+", role: "將 Google 脈動陣列藍圖進行實體佈局 (RTL to GDSII)，整合自研 224G SerDes 並協同台積電投片", share: "現行 TPU 首供 (>60%)", tickers: ["AVGO"] },
+      tpu_mid_mediatek: { id: "tpu_mid_mediatek", stage: 2, name: "🔥 聯發科 (2454.TW)", sub: "MediaTek (次世代雙供先鋒)", col: 1, row: 1, margin: "48% ~ 50%", role: "Google 去博通化關鍵戰略夥伴！以自研 224G SerDes IP、台積電 3nm/2nm 先進流片特權與萬人團隊，全力切入次世代 TPU (v7) 雙供體系", share: "次世代雙供候選 · 224G SerDes", tickers: ["2454.TW"] },
+      tpu_mid_quanta: { id: "tpu_mid_quanta", stage: 2, name: "⭐ 廣達電腦 / 雲達 (QCT)", sub: "Quanta (2382.TW / 白牌 ODM 龍頭)", col: 1, row: 2, margin: "8.5% ~ 10%", role: "深耕 Google 超過 15 年，全面主導主板打件、水冷管路配置與 TPU Pod 8,960 顆晶片整機櫃集成組裝", share: "TPU 整機市佔第一 (>65%)", tickers: ["2382.TW"] },
+      tpu_mid_cooling: { id: "tpu_mid_cooling", stage: 2, name: "液冷散熱與 CDU 冷卻分配", sub: "雙鴻 (3324) / 奇鋐 (3017)", col: 1, row: 3, margin: "22% ~ 28%", role: "TPU v3 起強制全液冷，特製純銅水冷板 (Cold Plate) 與機櫃級 CDU，單晶片解熱能力突破 1000W", share: "台灣水冷散熱雙雄", tickers: ["3324.TW", "3017.TW"] },
+      tpu_mid_abf: { id: "tpu_mid_abf", stage: 2, name: "高階大尺寸 ABF 載板", sub: "欣興 (3037) / 揖斐電 (Ibiden)", col: 1, row: 4, margin: "25% ~ 30%", role: "承載超大面積 TPU 晶粒與多顆 HBM 堆疊之 16~20 層高密度載板，欣興為第一大主供", share: "全球載板雙雄", tickers: ["3037.TW", "4062.T"] },
+      tpu_mid_pcb: { id: "tpu_mid_pcb", stage: 2, name: "高層數 PCB 與低損耗 CCL", sub: "金像電 (2368) / 台光電 (2383)", col: 1, row: 5, margin: "28% ~ 32%", role: "供應 TPU 運算托盤 (Tray) 與 OCS 背板 PCB，台光電獨家供應 Ultra Low Loss 銅箔基板", share: "AI PCB 霸主", tickers: ["2368.TW", "2383.TW"] },
+      tpu_mid_power: { id: "tpu_mid_power", stage: 2, name: "高壓電源與 Busbar 線束", sub: "台達電 (2308) / 貿聯-KY (3665)", col: 1, row: 6, margin: "26% ~ 30%", role: "符合 Open Rack 規範之 48V/12V 鈦金級高轉換電源與大電流 Busbar 銅排匯流排", share: "電源線束龍頭", tickers: ["2308.TW", "3665.TW"] },
 
       // 3. 下游
       tpu_down_gemini: { id: "tpu_down_gemini", stage: 3, name: "Gemini 2.0 / 1.5 旗艦大模型", sub: "Google DeepMind 核心訓練", col: 2, row: 0, margin: "全自研無溢價稅", role: "Gemini 1.0、1.5 Pro 與最新 2.0 前沿多模態大模型 100% 在 TPU Pod 上預訓練完成，0% 依賴外部 GPU", share: "內部旗艦核心", tickers: ["GOOGL"] },
@@ -375,13 +376,17 @@ class GoogleTpuVisualizer {
     return [
       // 上游至中游
       { from: "tpu_up_eda", to: "tpu_mid_broadcom" },
+      { from: "tpu_up_eda", to: "tpu_mid_mediatek" },
       { from: "tpu_up_tsmc", to: "tpu_mid_broadcom" },
+      { from: "tpu_up_tsmc", to: "tpu_mid_mediatek" },
       { from: "tpu_up_tsmc", to: "tpu_mid_abf" },
       { from: "tpu_up_hbm", to: "tpu_mid_broadcom" },
+      { from: "tpu_up_hbm", to: "tpu_mid_mediatek" },
       { from: "tpu_up_ocs", to: "tpu_mid_pcb" },
 
       // 中游各環節至廣達 ODM 整機整合
       { from: "tpu_mid_broadcom", to: "tpu_mid_quanta" },
+      { from: "tpu_mid_mediatek", to: "tpu_mid_quanta" },
       { from: "tpu_mid_abf", to: "tpu_mid_quanta" },
       { from: "tpu_mid_cooling", to: "tpu_mid_quanta" },
       { from: "tpu_mid_pcb", to: "tpu_mid_quanta" },
@@ -411,9 +416,9 @@ class GoogleTpuVisualizer {
       gap = 120;
       startY = 75;
     } else if (node.col === 1) {
-      h = 56;
-      gap = 82;
-      startY = 68;
+      h = 50;
+      gap = 71;
+      startY = 60;
     } else {
       h = 64;
       gap = 100;
@@ -606,8 +611,9 @@ class GoogleTpuVisualizer {
                 點選任意節點（如台積電、博通、廣達 ODM、自研 OCS 光開關、Gemini 2.0、蘋果 Apple Intelligence），動態點亮全鏈流向！
               </p>
             </div>
-            <div style="display:flex; gap:6px;">
+            <div style="display:flex; gap:6px; flex-wrap:wrap;">
               <button class="tco-mode-btn active" id="tpuFilterQuanta">聚焦廣達 ODM 整機</button>
+              <button class="tco-mode-btn" id="tpuFilterMediatek">🔥 聚焦聯發科次世代雙供</button>
               <button class="tco-mode-btn" id="tpuFilterTsmc">聚焦台積電 100% 製造</button>
               <button class="tco-mode-btn" id="tpuFilterApple">聚焦蘋果與 Gemini 算力</button>
             </div>
@@ -670,12 +676,18 @@ class GoogleTpuVisualizer {
     });
 
     const btnQuanta = this.container.querySelector("#tpuFilterQuanta");
+    const btnMediatek = this.container.querySelector("#tpuFilterMediatek");
     const btnTsmc = this.container.querySelector("#tpuFilterTsmc");
     const btnApple = this.container.querySelector("#tpuFilterApple");
 
     if (btnQuanta) {
       btnQuanta.addEventListener("click", () => {
         this.selectNode("tpu_mid_quanta");
+      });
+    }
+    if (btnMediatek) {
+      btnMediatek.addEventListener("click", () => {
+        this.selectNode("tpu_mid_mediatek");
       });
     }
     if (btnTsmc) {
