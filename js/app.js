@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderCspChipsSection();
   initTcoCalculator();
   renderFinancialsSection();
+  renderJapanKoreaSection();
 });
 
 function initTabNavigation() {
@@ -372,4 +373,235 @@ function renderFinancialsSection() {
       </div>
     </div>
   `;
+}
+
+function renderJapanKoreaSection() {
+  const container = document.getElementById('japanKoreaContainer');
+  const data = window.ASIC_SUPPLY_CHAIN_DATA?.japanKoreaAsic;
+  if (!container || !data) return;
+
+  let currentTab = 'all'; // 'all', 'japan', 'korea', 'matrix'
+  let searchQuery = '';
+
+  function renderView() {
+    let jpList = [...data.japan];
+    let krList = [...data.korea];
+
+    if (searchQuery.trim() !== '') {
+      const q = searchQuery.toLowerCase();
+      jpList = jpList.filter(c => 
+        c.company.toLowerCase().includes(q) || 
+        c.role.toLowerCase().includes(q) || 
+        c.techFocus.toLowerCase().includes(q) ||
+        c.advantage.toLowerCase().includes(q)
+      );
+      krList = krList.filter(c => 
+        c.company.toLowerCase().includes(q) || 
+        c.role.toLowerCase().includes(q) || 
+        c.techFocus.toLowerCase().includes(q) ||
+        c.advantage.toLowerCase().includes(q)
+      );
+    }
+
+    let cardsHtml = '';
+    const showJp = (currentTab === 'all' || currentTab === 'japan') && currentTab !== 'matrix';
+    const showKr = (currentTab === 'all' || currentTab === 'korea') && currentTab !== 'matrix';
+    const showMatrix = currentTab === 'matrix';
+
+    if (showJp || showKr) {
+      let combined = [];
+      if (showJp) combined = combined.concat(jpList);
+      if (showKr) combined = combined.concat(krList);
+
+      cardsHtml = `
+        <div class="jk-cards-grid">
+          ${combined.map(c => {
+            const isJp = c.country.includes('日本');
+            return `
+              <div class="jk-card ${isJp ? 'jk-card-jp' : 'jk-card-kr'}">
+                <div class="jk-card-header">
+                  <div>
+                    <h4 class="jk-company-name">${c.company}</h4>
+                    <div style="font-size:11px; color:#94a3b8; font-family:var(--font-mono); margin-top:2px;">
+                      ${c.ticker}
+                    </div>
+                  </div>
+                  <span class="jk-badge-country ${isJp ? 'jk-badge-jp' : 'jk-badge-kr'}">
+                    ${c.country}
+                  </span>
+                </div>
+
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                  <span style="font-size:11px; color:#f8fafc; font-weight:700;">${c.role}</span>
+                  <span style="font-size:10px; padding:2px 6px; border-radius:4px; background:rgba(255,255,255,0.06); color:#cbd5e1;">
+                    ${c.status}
+                  </span>
+                </div>
+
+                <div class="jk-foundry-tag">
+                  <span>🏭 晶圓夥伴：</span>
+                  <strong>${c.foundryPartner}</strong>
+                </div>
+
+                <div class="jk-desc-box">
+                  <div style="font-weight:700; color:#06b6d4; margin-bottom:4px;">🎯 技術核心與產品：</div>
+                  ${c.techFocus}
+                </div>
+
+                <div class="jk-advantage-box">
+                  <span style="color:#c084fc; font-weight:bold;">⚔️ 核心競爭優勢：</span>
+                  ${c.advantage}
+                </div>
+              </div>
+            `;
+          }).join('')}
+        </div>
+      `;
+    }
+
+    container.innerHTML = `
+      <!-- 頂部戰略背景 Banner -->
+      <div class="jk-hero-banner">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:12px;">
+          <div style="max-width:850px;">
+            <h2 style="font-size:20px; font-weight:900; color:#fff; display:flex; align-items:center; gap:10px;">
+              <span>🇯🇵🇰🇷</span> ${data.overview.title}
+            </h2>
+            <p style="font-size:12.5px; color:#cbd5e1; margin-top:8px; line-height:1.65;">
+              ${data.overview.description}
+            </p>
+          </div>
+          <div style="background:rgba(15,23,42,0.8); border:1px solid rgba(255,255,255,0.1); border-radius:8px; padding:10px 14px; font-size:11px; text-align:right;">
+            <div style="color:#94a3b8;">國家隊覆蓋</div>
+            <div style="font-size:15px; font-weight:bold; color:#06b6d4;">日本 6 家 · 南韓 7 家</div>
+            <div style="color:#10b981; font-size:10px; margin-top:2px;">涵蓋 3nm/2nm、HBM3e 與 RISC-V</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 篩選列 -->
+      <div class="jk-filter-bar">
+        <div class="jk-filter-group" id="jkTabGroup">
+          <button class="tco-mode-btn ${currentTab === 'all' ? 'active' : ''}" data-val="all">
+            🌐 全部日韓隊伍 (${data.japan.length + data.korea.length})
+          </button>
+          <button class="tco-mode-btn ${currentTab === 'japan' ? 'active' : ''}" data-val="japan">
+            🇯🇵 日本代表隊 (Socionext / PFN / Rapidus / MegaChips / Renesas)
+          </button>
+          <button class="tco-mode-btn ${currentTab === 'korea' ? 'active' : ''}" data-val="korea">
+            🇰🇷 南韓代表隊 (Rebellions / FuriosaAI / Gaonchips / ADTech / SemiFive)
+          </button>
+          <button class="tco-mode-btn ${currentTab === 'matrix' ? 'active' : ''}" data-val="matrix">
+            📊 台美日韓四角競合戰略對決大表
+          </button>
+        </div>
+        <div>
+          <input type="text" id="jkSearchInput" placeholder="🔍 搜尋日韓廠商、製程、技術..." style="background:#0b1324; border:1px solid #1e293b; color:#fff; padding:7px 14px; border-radius:20px; font-size:12px; outline:none; min-width:240px;">
+        </div>
+      </div>
+
+      <!-- 主要內容區塊 -->
+      ${!showMatrix ? cardsHtml : ''}
+
+      <!-- 台美日韓四角橫向大表 (當選擇 matrix 或全部時呈現) -->
+      ${(showMatrix || currentTab === 'all') ? `
+        <div class="arch-table-card" style="margin-top: ${currentTab === 'all' ? '20px' : '0'};">
+          <div style="padding:16px 20px; background:#09101d; border-bottom:1px solid var(--border-subtle); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+            <div>
+              <h3 style="font-size:16px; font-weight:900; color:#fff; display:flex; align-items:center; gap:8px;">
+                <span style="color:#06b6d4;">🌐</span> 台、美、日、韓 ASIC 產業鏈商業模式與戰略定位橫向大對決
+              </h3>
+              <p style="font-size:11px; color:#94a3b8; margin-top:2px;">
+                跨國半導體戰略：晶圓代工後盾、核心主力廠商、目標終端市場與產業挑戰全面剖析
+              </p>
+            </div>
+            <span class="fin-badge-purple">四角地緣戰略格局</span>
+          </div>
+          <div class="arch-table-wrapper">
+            <table class="arch-spec-table">
+              <thead>
+                <tr>
+                  <th>國家 / 地區陣營</th>
+                  <th>主導商業模式 (Model)</th>
+                  <th style="color:#06b6d4;">晶圓代工與封裝後盾</th>
+                  <th>核心代表企業 (Key Players)</th>
+                  <th>主要聚焦市場</th>
+                  <th style="color:#10b981;">核心競爭護城河</th>
+                  <th style="color:#f43f5e;">面臨瓶頸與挑戰</th>
+                  <th style="color:#ffd700;">戰略定位結論</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${data.quadComparison.map(q => `
+                  <tr>
+                    <td><strong style="color:#fff; font-size:13px;">${q.region}</strong></td>
+                    <td style="font-size:11.5px; color:#cbd5e1; max-width:200px; white-space:normal; line-height:1.4;">${q.businessModel}</td>
+                    <td style="color:#06b6d4; font-size:11.5px; max-width:180px; white-space:normal;">${q.foundrySupport}</td>
+                    <td style="font-size:11px; color:#c084fc; max-width:210px; white-space:normal; line-height:1.4;">${q.keyPlayers}</td>
+                    <td style="font-size:11px; color:#94a3b8; max-width:180px; white-space:normal;">${q.targetMarket}</td>
+                    <td style="font-size:11px; color:#10b981; max-width:200px; white-space:normal; line-height:1.4;">${q.coreStrength}</td>
+                    <td style="font-size:11px; color:#fda4af; max-width:180px; white-space:normal; line-height:1.4;">${q.challenges}</td>
+                    <td><span class="fin-badge-green" style="font-size:11px;">${q.strategicScore}</span></td>
+                  </tr>
+                `).join('')}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      ` : ''}
+
+      <!-- 日韓半導體與台積電合作深層解析 -->
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:16px; margin-top:24px;">
+        <div style="background:#09101d; border:1px solid #1e293b; border-radius:8px; padding:16px;">
+          <h4 style="font-size:14px; color:#f8fafc; font-weight:800; display:flex; align-items:center; gap:6px; margin-bottom:8px;">
+            <span style="color:#f43f5e;">🇯🇵</span> 日本 ASIC 的戰略路徑：為何緊抱車用與台積電？
+          </h4>
+          <p style="font-size:11.5px; color:#94a3b8; line-height:1.6;">
+            日本雖然在 1990 年代失去了 PC 處理器霸權，但以 <strong>Socionext</strong> 為首的團隊承襲了富士通與松下的世界級 LSI 技術。由於車用電子 (Toyota/Denso) 與工業機器人對故障率要求近乎為零，Socionext 與台積電深度綁定推進 3nm/2nm，成為全球最穩定的高階車用 ADAS 與網通客製化晶片主力。
+          </p>
+        </div>
+
+        <div style="background:#09101d; border:1px solid #1e293b; border-radius:8px; padding:16px;">
+          <h4 style="font-size:14px; color:#f8fafc; font-weight:800; display:flex; align-items:center; gap:6px; margin-bottom:8px;">
+            <span style="color:#3b82f6;">🇰🇷</span> 南韓 SAFE 體系：三星如何打造「韓版創意與世芯」？
+          </h4>
+          <p style="font-size:11.5px; color:#94a3b8; line-height:1.6;">
+            面對台積電龐大的 DCA/OIP 生態圈，三星晶圓代工 (Samsung Foundry) 成立了 <strong>SAFE (Samsung Advanced Foundry Ecosystem)</strong>。其中 <strong>Gaonchips</strong> 專攻三星 3nm/4nm 先進設計 (角色如同台灣創意 GUC)；<strong>ADTechnology</strong> 擁有逾 600 名工程師專攻北美 HPC；<strong>SemiFive</strong> 則以模組化 RISC-V 平台快速量產，形成了三星代工出擊客製化 ASIC 的三叉戟！
+          </p>
+        </div>
+
+        <div style="background:#09101d; border:1px solid #1e293b; border-radius:8px; padding:16px;">
+          <h4 style="font-size:14px; color:#f8fafc; font-weight:800; display:flex; align-items:center; gap:6px; margin-bottom:8px;">
+            <span style="color:#10b981;">⚡</span> 記憶體牆突破：韓國自帶 HBM 直供的戰略底氣
+          </h4>
+          <p style="font-size:11.5px; color:#94a3b8; line-height:1.6;">
+            全球超過 90% 的 HBM3e 由 SK 海力士與三星電子包辦。南韓 AI 國家隊 <strong>Rebellions (REBEL 晶片)</strong> 能夠直接在本土與三星代工廠取得最頂級的 HBM3e 封裝支援；而 <strong>OpenEdges</strong> 則提供世界少數抗衡美商的高速 HBM 與記憶體控制器 IP，使南韓具備極為罕見的晶片記憶體直通優勢！
+          </p>
+        </div>
+      </div>
+    `;
+
+    bindEvents();
+  }
+
+  function bindEvents() {
+    const tabBtns = container.querySelectorAll('#jkTabGroup button');
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        currentTab = btn.getAttribute('data-val');
+        renderView();
+      });
+    });
+
+    const searchInput = container.querySelector('#jkSearchInput');
+    if (searchInput) {
+      searchInput.value = searchQuery;
+      searchInput.addEventListener('input', (e) => {
+        searchQuery = e.target.value;
+        renderView();
+      });
+    }
+  }
+
+  renderView();
 }
