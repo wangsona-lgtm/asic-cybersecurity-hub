@@ -312,6 +312,7 @@ function renderFinancialsSection() {
   if (!container) return;
 
   const financialTableData = [
+    { company: "聯發科 (2454 / MediaTek)", sector: "Enterprise AI ASIC / IC設計霸主", price: "NT$ 1,295", pe: "19.5x", roic: "26.5%", wacc: "8.0%", spread: "+18.5%", status: "高利差巨無霸 (+18.5%)", moat: "224G SerDes 自研 IP、台積電 3nm/2nm 先進流片與 NVIDIA 策略結盟" },
     { company: "世芯-KY (3661)", sector: "ASIC 設計服務 (股王)", price: "NT$ 2,350", pe: "38.5x", roic: "32.0%", wacc: "7.8%", spread: "+24.2%", status: "高利差成長怪物", moat: "北美 CSP 3nm/5nm 先進製程市佔第一" },
     { company: "創意電子 (3443)", sector: "ASIC 設計服務 (台積子公司)", price: "NT$ 1,280", pe: "42.0x", roic: "28.5%", wacc: "7.6%", spread: "+20.9%", status: "卓越價值創造", moat: "台積電 CoWoS 封裝與 HBM 介面直通" },
     { company: "力旺 (3529)", sector: "晶片硬體信任根 (PUF IP)", price: "NT$ 2,980", pe: "78.5x", roic: "45.0%", wacc: "7.5%", spread: "+37.5%", status: "輕資產超高利差 (毛利100%)", moat: "量子抗性晶片指紋資安 IP 獨佔" },

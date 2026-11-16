@@ -28,10 +28,11 @@ class AsicVisualizer {
 
       // 2. 中游
       mid_broadcom: { id: "mid_broadcom", stage: 2, name: "⭐ 博通 (Broadcom)", sub: "AVGO (全球客製 ASIC 霸主)", col: 1, row: 0, margin: "75%+", role: "通吃 Google TPU、Meta MTIA 與字節跳動，年 ASIC 營收突破百億美元", share: "全球份額 >60%", tickers: ["AVGO"] },
-      mid_alchip: { id: "mid_alchip", stage: 2, name: "⭐ 世芯-KY (3661)", sub: "Alchip (台灣 ASIC 股王)", col: 1, row: 1, margin: "20% ~ 24%", role: "北美雲端巨頭 AWS Trainium 2 與超大規模 AI 晶片後段設計服務主供", share: "3nm 先進製程純度第一", tickers: ["3661"] },
-      mid_guc: { id: "mid_guc", stage: 2, name: "創意電子 (3443)", sub: "GUC (台積電旗艦子公司)", col: 1, row: 2, margin: "25% ~ 30%", role: "微軟 Maia 100 AI 加速晶片、HBM 介面與 CoWoS 先進封裝 Turnkey", share: "微軟核心夥伴", tickers: ["3443"] },
-      mid_sec_asic: { id: "mid_sec_asic", stage: 2, name: "🛡️ 專用資安加速硬體", sub: "Fortinet (FTNT) / 立端 (6245)", col: 1, row: 3, margin: "40% ~ 75%", role: "自研 SP5 資安 ASIC 晶片、網路邊緣安全伺服器與次世代防火牆代工", share: "資安硬體市佔第一", tickers: ["FTNT", "6245"] },
-      mid_server_odm: { id: "mid_server_odm", stage: 2, name: "白牌 AI 伺服器整機", sub: "緯穎 (6669) / 廣達 (2382)", col: 1, row: 4, margin: "8% ~ 10%", role: "AWS Trainium 與 Meta MTIA 專屬整機櫃水冷組裝直供，零品牌溢價", share: "ASIC 伺服器龍頭", tickers: ["6669", "2382"] },
+      mid_mediatek: { id: "mid_mediatek", stage: 2, name: "⭐ 聯發科 (2454)", sub: "MediaTek (Enterprise ASIC 巨擘)", col: 1, row: 1, margin: "48% ~ 50%", role: "手握 224G SerDes 自研矽智財、台積電 3nm/2nm 先進流片特權，搶攻北美四大 CSP 次世代自研專案，並結盟 NVIDIA 打造車用座艙與 AI PC 客製晶片", share: "台灣研發工程師逾萬人", tickers: ["2454"] },
+      mid_alchip: { id: "mid_alchip", stage: 2, name: "⭐ 世芯-KY (3661)", sub: "Alchip (台灣 ASIC 股王)", col: 1, row: 2, margin: "20% ~ 24%", role: "北美雲端巨頭 AWS Trainium 2 與超大規模 AI 晶片後段設計服務主供", share: "3nm 先進製程純度第一", tickers: ["3661"] },
+      mid_guc: { id: "mid_guc", stage: 2, name: "創意電子 (3443)", sub: "GUC (台積電旗艦子公司)", col: 1, row: 3, margin: "25% ~ 30%", role: "微軟 Maia 100 AI 加速晶片、HBM 介面與 CoWoS 先進封裝 Turnkey", share: "微軟核心夥伴", tickers: ["3443"] },
+      mid_sec_asic: { id: "mid_sec_asic", stage: 2, name: "🛡️ 專用資安加速硬體", sub: "Fortinet (FTNT) / 立端 (6245)", col: 1, row: 4, margin: "40% ~ 75%", role: "自研 SP5 資安 ASIC 晶片、網路邊緣安全伺服器與次世代防火牆代工", share: "資安硬體市佔第一", tickers: ["FTNT", "6245"] },
+      mid_server_odm: { id: "mid_server_odm", stage: 2, name: "白牌 AI 伺服器整機", sub: "緯穎 (6669) / 廣達 (2382)", col: 1, row: 5, margin: "8% ~ 10%", role: "AWS Trainium 與 Meta MTIA 專屬整機櫃水冷組裝直供，零品牌溢價", share: "ASIC 伺服器龍頭", tickers: ["6669", "2382"] },
 
       // 3. 下游
       down_tpu: { id: "down_tpu", stage: 3, name: "Google TPU v5/v6", sub: "Alphabet / Google", col: 2, row: 0, margin: "廣告+雲端高利", role: "Gemini 2.0 基礎大模型訓練、Google 搜尋與 YouTube 推薦引擎", share: "百萬顆規模", tickers: ["GOOGL"] },
@@ -46,12 +47,14 @@ class AsicVisualizer {
     return [
       // 上游至中游
       { from: "up_eda", to: "mid_broadcom" },
+      { from: "up_eda", to: "mid_mediatek" },
       { from: "up_eda", to: "mid_alchip" },
       { from: "up_ip_tw", to: "mid_alchip" },
       { from: "up_ip_tw", to: "mid_guc" },
       { from: "up_puf_sec", to: "mid_alchip" },
       { from: "up_puf_sec", to: "mid_sec_asic" },
       { from: "up_tsmc", to: "mid_broadcom" },
+      { from: "up_tsmc", to: "mid_mediatek" },
       { from: "up_tsmc", to: "mid_alchip" },
       { from: "up_tsmc", to: "mid_guc" },
       { from: "up_arm", to: "mid_guc" },
@@ -60,6 +63,8 @@ class AsicVisualizer {
       // 中游至整機與下游
       { from: "mid_broadcom", to: "down_tpu" },
       { from: "mid_broadcom", to: "down_mtia" },
+      { from: "mid_mediatek", to: "down_mtia" },
+      { from: "mid_mediatek", to: "down_tpu" },
       { from: "mid_alchip", to: "mid_server_odm" },
       { from: "mid_alchip", to: "down_trainium" },
       { from: "mid_guc", to: "down_maia" },
@@ -72,13 +77,14 @@ class AsicVisualizer {
   }
 
   getNodeCoords(node) {
-    // 3 欄式設計：寬度 1100 x 580
+    // 3 欄式設計：寬度 1100 x 600
     const colX = [30, 420, 800];
     const colWidths = [270, 270, 270];
     const x = colX[node.col];
     const w = colWidths[node.col];
-    const h = 64;
-    const y = 65 + node.row * 100;
+    const h = node.col === 1 ? 58 : 64;
+    const gap = node.col === 1 ? 88 : 100;
+    const y = 65 + node.row * gap;
 
     return {
       x, y, w, h,

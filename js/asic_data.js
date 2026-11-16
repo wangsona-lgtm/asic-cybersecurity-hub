@@ -77,6 +77,7 @@ window.ASIC_SUPPLY_CHAIN_DATA = {
           description: "擁有最深厚先進製程實體設計經驗與光罩整合能力，直接對接北美四大 CSP 數億美元客製晶片訂單。",
           keyPlayers: [
             { name: "博通 (Broadcom / AVGO)", role: "全球客製化 AI ASIC 絕對霸主，獨吞 Google TPU、Meta MTIA 與字節跳動自研單", margin: "75%+", share: "全球 ASIC 份額 >60%", ticker: "AVGO" },
+            { name: "聯發科 (2454 / MediaTek)", role: "台灣 IC 設計龍頭全力跨足 Enterprise AI ASIC！手握 224G SerDes、台積電 3nm/2nm 先進製程流片特權，搶攻北美四大 CSP 次世代自研專案，並結盟 NVIDIA 打造車用座艙與 AI PC 客製晶片", margin: "48% ~ 50%", share: "台灣研發工程師規模第一 (逾萬人)", ticker: "2454.TW" },
             { name: "世芯-KY (3661)", role: "純度最高之台灣 ASIC 股王，通吃 AWS Trainium/Inferentia 與北美新創晶片", margin: "18% ~ 22% (量產)", share: "北美 CSP 核心主力", ticker: "3661.TW" },
             { name: "創意電子 (3443)", role: "台積電直屬設計服務旗艦，專攻 HBM3e 整合、微軟 Maia/Cobalt 與高速介面 ASIC", margin: "25% ~ 30%", share: "台積電 CoWoS 第一首選", ticker: "3443.TW" },
             { name: "Marvell (MRVL)", role: "AWS 雲端算力與網通互連 ASIC 核心夥伴，具備客製化運算與光電轉換實力", margin: "52% ~ 55%", share: "雲端客製運算二哥", ticker: "MRVL" },
