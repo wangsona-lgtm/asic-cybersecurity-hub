@@ -291,6 +291,9 @@ function renderCspChipsSection() {
       </div>
     </div>
 
+    <!-- 0. Google TPU 全球上下游產業鏈專屬視覺化拓撲圖 -->
+    <div id="googleTpuVisualizerContainer" style="margin-bottom:28px;"></div>
+
     <!-- 1. Google TPU 歷代進化時間軸 (Timeline) -->
     <div style="margin-bottom:28px;">
       <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
@@ -467,6 +470,11 @@ function renderCspChipsSection() {
       </div>
     </div>
   `;
+
+  // 初始化 Google TPU 專屬拓撲視覺化引擎
+  if (window.GoogleTpuVisualizer) {
+    new window.GoogleTpuVisualizer('googleTpuVisualizerContainer');
+  }
 }
 
 function initTcoCalculator() {
