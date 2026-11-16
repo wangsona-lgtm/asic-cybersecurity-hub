@@ -291,7 +291,24 @@ function renderCspChipsSection() {
       </div>
     </div>
 
-    <!-- 0. Google TPU 全球上下游產業鏈專屬視覺化拓撲圖 -->
+    <!-- 0. Google TPU 全球上下游產業鏈旗艦全景圖 (高清實體圖 + 互動拓撲圖) -->
+    <div style="margin-bottom:28px;">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:10px;">
+        <h3 style="font-size:17px; font-weight:900; color:#fff; display:flex; align-items:center; gap:8px;">
+          <span>🗺️</span> Google TPU 全球上下游產業鏈旗艦全景圖
+        </h3>
+        <span style="font-size:11px; color:#38bdf8; background:rgba(6,182,212,0.12); padding:3px 10px; border-radius:12px; border:1px solid rgba(6,182,212,0.3);">
+          包含晶圓代工、HBM、自研光開關、博通設計服務、廣達 ODM 與雲端大模型
+        </span>
+      </div>
+
+      <!-- 高解析度產業鏈全景圖片展示 -->
+      <div style="border: 1px solid rgba(66, 133, 244, 0.4); border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5); margin-bottom: 20px; background:#070b14;">
+        <img src="images/google_tpu_chain.png" alt="Google TPU 全球上下游產業鏈旗艦全景地圖" style="width: 100%; height: auto; display: block; min-height: 280px;" loading="eager">
+      </div>
+    </div>
+
+    <!-- 0-B. Google TPU 全球上下游產業鏈專屬視覺化拓撲圖 -->
     <div id="googleTpuVisualizerContainer" style="margin-bottom:28px;"></div>
 
     <!-- 1. Google TPU 歷代進化時間軸 (Timeline) -->
