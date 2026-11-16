@@ -1,0 +1,401 @@
+/* ==========================================================================
+   ASIC 與資安戰情模組專用樣式表 (ASIC & Cybersecurity Components)
+   ========================================================================== */
+
+/* 拓撲 SVG 區塊 */
+.asic-topo-section {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 22px;
+  margin-bottom: 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+.asic-topo-header {
+  margin-bottom: 16px;
+}
+.asic-svg-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: 8px;
+  border: 1px solid #1e293b;
+  background: #090d18;
+}
+.asic-svg-canvas {
+  width: 100%;
+  min-width: 900px;
+  height: auto;
+  display: block;
+}
+
+/* 節點樣式 */
+.asic-topo-node {
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.asic-node-rect {
+  fill: #0c1426;
+  stroke-width: 1.5;
+  transition: all 0.2s ease;
+}
+.asic-node-title {
+  fill: #f8fafc;
+  font-size: 11.5px;
+  font-weight: 800;
+  font-family: var(--font-main);
+  user-select: none;
+}
+.asic-node-sub {
+  fill: #94a3b8;
+  font-size: 9.5px;
+  font-family: var(--font-mono);
+  user-select: none;
+}
+.asic-node-margin {
+  font-size: 9.5px;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  user-select: none;
+}
+.asic-core-rect {
+  fill: #131a33 !important;
+  stroke-width: 2.2 !important;
+  filter: drop-shadow(0 0 10px rgba(139, 92, 246, 0.5));
+}
+
+.asic-topo-node:hover .asic-node-rect {
+  stroke-width: 2.2;
+  filter: drop-shadow(0 0 8px rgba(6, 182, 212, 0.6));
+  fill: #14223d;
+}
+.asic-topo-node.active-node .asic-node-rect {
+  stroke: #06b6d4 !important;
+  stroke-width: 2.8;
+  fill: #172847;
+  filter: drop-shadow(0 0 14px rgba(6, 182, 212, 0.8));
+}
+.asic-topo-node.related-node .asic-node-rect {
+  stroke-width: 2.2;
+  filter: drop-shadow(0 0 8px rgba(139, 92, 246, 0.5));
+  fill: #111d33;
+}
+.asic-topo-node.dimmed {
+  opacity: 0.18;
+}
+
+/* 動態光流連線 */
+@keyframes asicFlowDash {
+  0% { stroke-dashoffset: 40; }
+  100% { stroke-dashoffset: 0; }
+}
+.asic-topo-link {
+  stroke: rgba(100, 116, 139, 0.28);
+  stroke-width: 1.5;
+  fill: none;
+  transition: stroke 0.25s, opacity 0.25s;
+}
+.asic-topo-link.dimmed {
+  opacity: 0.05;
+}
+.asic-topo-link.active-flow {
+  stroke: #06b6d4;
+  stroke-width: 2.6;
+  stroke-dasharray: 6 3;
+  animation: asicFlowDash 0.8s linear infinite;
+  filter: drop-shadow(0 0 6px rgba(6, 182, 212, 0.7));
+}
+
+/* 拓撲檢查面板 */
+.asic-inspector-card {
+  background: #090f1d;
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  padding: 16px 20px;
+}
+.asic-inspector-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 10px;
+  margin: 12px 0;
+}
+.asic-metric-box {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 11px;
+}
+.asic-metric-label {
+  display: block;
+  color: #94a3b8;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+.asic-metric-val {
+  font-size: 12px;
+  color: #fff;
+}
+.asic-ticker-tag {
+  background: rgba(139, 92, 246, 0.15);
+  border: 1px solid rgba(139, 92, 246, 0.35);
+  color: #c084fc;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 10.5px;
+  font-family: var(--font-mono);
+  font-weight: 700;
+}
+.asic-reset-btn {
+  background: transparent;
+  border: 1px dashed #64748b;
+  color: #cbd5e1;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 11px;
+  cursor: pointer;
+}
+.asic-reset-btn:hover {
+  border-color: #8b5cf6;
+  color: #c084fc;
+}
+
+/* 資安股戰情室卡片樣式 */
+.cyber-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.cyber-pillar-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  padding: 18px;
+  border-top: 3px solid var(--cyber-cyan);
+}
+.cyber-pillar-title {
+  font-size: 15px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 6px;
+}
+.cyber-pillar-desc {
+  font-size: 12px;
+  color: #cbd5e1;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+.cyber-pillar-rep {
+  font-size: 11px;
+  color: #06b6d4;
+  font-family: var(--font-mono);
+  font-weight: 700;
+}
+
+/* 資安股票清單 */
+.cyber-stocks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 16px;
+  margin-bottom: 30px;
+}
+.cyber-stock-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s, border-color 0.2s;
+}
+.cyber-stock-card:hover {
+  border-color: rgba(6, 182, 212, 0.5);
+  transform: translateY(-2px);
+}
+.cyber-stock-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+.cyber-price-badge {
+  font-size: 18px;
+  font-weight: 900;
+  font-family: var(--font-mono);
+  color: #fff;
+}
+.cyber-metrics-row {
+  display: flex;
+  gap: 12px;
+  font-size: 11px;
+  color: #94a3b8;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* TCO 試算器樣式 */
+.tco-calc-wrapper {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 30px;
+}
+.tco-header-card {
+  margin-bottom: 20px;
+}
+.tco-savings-badge {
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  padding: 12px 20px;
+  border-radius: 8px;
+  text-align: right;
+}
+.tco-controls-panel {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  background: rgba(10, 16, 28, 0.6);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  padding: 18px 20px;
+  margin-bottom: 24px;
+}
+.tco-control-item {
+  flex: 1;
+  min-width: 260px;
+}
+.tco-slider {
+  width: 100%;
+  accent-color: var(--cyber-cyan);
+  cursor: pointer;
+}
+.tco-btn-group {
+  display: flex;
+  gap: 8px;
+}
+.tco-mode-btn {
+  flex: 1;
+  background: #162032;
+  border: 1px solid #1e293b;
+  color: #cbd5e1;
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 11.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.tco-mode-btn.active {
+  background: #0284c7;
+  border-color: #38bdf8;
+  color: #fff;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
+}
+
+.tco-compare-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 20px;
+}
+.tco-card {
+  background: #09101d;
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.tco-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+.tco-metric-main {
+  background: rgba(15, 23, 42, 0.7);
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 14px;
+}
+.tco-breakdown-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 12px;
+  margin-bottom: 14px;
+}
+.tco-breakdown-row {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.05);
+  padding-bottom: 4px;
+}
+.tco-card-footer {
+  margin-top: auto;
+  font-size: 11.5px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  line-height: 1.5;
+}
+
+/* 財務指標大表樣式 */
+.arch-table-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+.arch-table-wrapper {
+  overflow-x: auto;
+}
+.arch-spec-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  text-align: left;
+}
+.arch-spec-table th {
+  background: #09101d;
+  color: var(--text-muted);
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border-subtle);
+  white-space: nowrap;
+}
+.arch-spec-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  color: #cbd5e1;
+  white-space: nowrap;
+}
+.arch-spec-table tr:hover td {
+  background: rgba(139, 92, 246, 0.06);
+}
+
+.fin-badge-green {
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.15);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 10px;
+}
+.fin-badge-red {
+  color: #f43f5e;
+  background: rgba(244, 63, 94, 0.15);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 10px;
+}
+.fin-badge-purple {
+  color: #c084fc;
+  background: rgba(139, 92, 246, 0.15);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 10px;
+}

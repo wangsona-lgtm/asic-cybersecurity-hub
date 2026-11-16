@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>全球與台灣 ASIC 自研晶片生態系 × 資安概念股戰情觀測站 | ASIC & Cybersecurity Terminal</title>
+  
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/asic_cyber.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
+</head>
+<body>
+
+  <!-- 頂部導航列 -->
+  <header class="top-nav">
+    <div class="brand-section">
+      <div class="brand-logo">🛡️</div>
+      <div class="brand-text">
+        <h1>全球與台灣 ASIC 客製晶片生態系 × 資安概念股戰情觀測站</h1>
+        <p>ASIC SILICON ECOSYSTEM & CYBERSECURITY INTELLIGENCE TERMINAL</p>
+      </div>
+    </div>
+    <div class="nav-meta">
+      <div class="live-pill">
+        <span class="live-dot"></span>
+        <span>CSP 自研晶片浪潮 · 晶片資安在線</span>
+      </div>
+      <span style="color:#64748b;">最後更新：2026-11-16</span>
+    </div>
+  </header>
+
+  <!-- 分頁導航選單 (Tab Navigation) -->
+  <nav class="tabs-header">
+    <button class="tab-btn active" data-tab="tab-blueprint">
+      <span>🌐</span> ASIC 上中下游產業鏈圖譜
+    </button>
+    <button class="tab-btn" data-tab="tab-cybersecurity">
+      <span>🛡️</span> 全球與台灣資安概念股戰情室
+    </button>
+    <button class="tab-btn" data-tab="tab-chips">
+      <span>🏢</span> 五大 CSP 自研晶片矩陣 (TPU/Trainium/MTIA)
+    </button>
+    <button class="tab-btn" data-tab="tab-tco">
+      <span>🧮</span> ASIC vs. GPU 成本效益與 TCO 試算器
+    </button>
+    <button class="tab-btn" data-tab="tab-financials">
+      <span>📊</span> 概念股財務矩陣與 ROIC-WACC 評級
+    </button>
+  </nav>
+
+  <!-- 主內容容器 -->
+  <main class="main-container">
+
+    <!-- 即時關鍵大盤指標 (Market KPIs) -->
+    <section class="kpi-ticker-grid" id="kpiTickerContainer"></section>
+
+    <!-- 分頁一：ASIC 上中下游產業鏈全景圖譜 -->
+    <section id="tab-blueprint" class="tab-pane active">
+      <div id="asicVisualizerContainer"></div>
+      
+      <!-- 三大層級詳細賽道清單 -->
+      <div id="asicTierCardsContainer"></div>
+    </section>
+
+    <!-- 分頁二：全球與台灣資安概念股戰情室 -->
+    <section id="tab-cybersecurity" class="tab-pane">
+      <div id="cybersecurityContainer"></div>
+    </section>
+
+    <!-- 分頁三：五大 CSP 自研晶片硬體規格矩陣 -->
+    <section id="tab-chips" class="tab-pane">
+      <div id="cspChipsContainer"></div>
+    </section>
+
+    <!-- 分頁四：ASIC vs. GPU 成本效益與 3 年 TCO 試算器 -->
+    <section id="tab-tco" class="tab-pane">
+      <div id="tcoCalculatorContainer"></div>
+    </section>
+
+    <!-- 分頁五：ASIC 與資安概念股財務指標與 ROIC-WACC 評級大表 -->
+    <section id="tab-financials" class="tab-pane">
+      <div id="financialsContainer"></div>
+    </section>
+
+  </main>
+
+  <!-- 頁尾 -->
+  <footer class="hub-footer">
+    <p>全球與台灣 ASIC 客製晶片生態系 × 資安概念股戰情觀測站 · 涵蓋矽智財 IP、ASIC Turnkey、CSP 自研晶片與晶片硬體信任根</p>
+    <p style="margin-top:4px; color:#475569;">研究數據僅供產業、學術與科技投資參考，不構成任何具體投資建議</p>
+  </footer>
+
+  <!-- 引入邏輯與數據庫腳本 -->
+  <script src="js/asic_data.js"></script>
+  <script src="js/cybersecurity_data.js"></script>
+  <script src="js/tco_calculator.js"></script>
+  <script src="js/visualizer.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
