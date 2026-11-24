@@ -3,6 +3,9 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  // 0. 初始化主題切換 (預設淺色面板)
+  initThemeToggle();
+
   // 1. 初始化分頁切換
   initTabNavigation();
 
@@ -16,6 +19,38 @@ document.addEventListener('DOMContentLoaded', () => {
   renderFinancialsSection();
   renderJapanKoreaSection();
 });
+
+function initThemeToggle() {
+  const currentTheme = localStorage.getItem('hub_theme') || 'light';
+  document.documentElement.setAttribute('data-theme', currentTheme);
+  updateThemeButton(currentTheme);
+
+  const toggleBtn = document.getElementById('themeToggleBtn');
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', () => {
+      const activeTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', activeTheme);
+      localStorage.setItem('hub_theme', activeTheme);
+      updateThemeButton(activeTheme);
+
+      // 重新觸發拓撲圖渲染以更新 SVG 畫布主題色彩
+      if (window.AsicVisualizer) new window.AsicVisualizer('asicVisualizerContainer');
+      if (window.GoogleTpuVisualizer) new window.GoogleTpuVisualizer('googleTpuVisualizerContainer');
+    });
+  }
+}
+
+function updateThemeButton(theme) {
+  const toggleBtn = document.getElementById('themeToggleBtn');
+  if (!toggleBtn) return;
+  if (theme === 'dark') {
+    toggleBtn.innerHTML = '<span class="theme-icon">🌙</span><span class="theme-text">深色模式</span>';
+    toggleBtn.setAttribute('title', '點選切換為淺色模式');
+  } else {
+    toggleBtn.innerHTML = '<span class="theme-icon">☀️</span><span class="theme-text">淺色模式</span>';
+    toggleBtn.setAttribute('title', '點選切換為深色模式');
+  }
+}
 
 function initTabNavigation() {
   const tabBtns = document.querySelectorAll('.tab-btn');

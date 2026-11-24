@@ -254,6 +254,19 @@ class AsicVisualizer {
       `;
     }).join("");
 
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    const canvasBg = isDark ? '#090d18' : '#f8fafc';
+    const gridStroke = isDark ? 'rgba(255, 255, 255, 0.02)' : 'rgba(0, 0, 0, 0.04)';
+    const stage1Bg = isDark ? 'rgba(139, 92, 246, 0.15)' : 'rgba(109, 40, 217, 0.08)';
+    const stage1Border = isDark ? '#8b5cf655' : '#c4b5fd';
+    const stage1Text = isDark ? '#8b5cf6' : '#6d28d9';
+    const stage2Bg = isDark ? 'rgba(6, 182, 212, 0.15)' : 'rgba(2, 132, 199, 0.08)';
+    const stage2Border = isDark ? '#06b6d455' : '#7dd3fc';
+    const stage2Text = isDark ? '#06b6d4' : '#0284c7';
+    const stage3Bg = isDark ? 'rgba(16, 185, 129, 0.15)' : 'rgba(5, 150, 105, 0.08)';
+    const stage3Border = isDark ? '#10b98155' : '#6ee7b7';
+    const stage3Text = isDark ? '#10b981' : '#059669';
+
     this.container.innerHTML = `
       <div class="asic-topo-section">
         <div class="asic-topo-header">
@@ -262,10 +275,10 @@ class AsicVisualizer {
               <span class="live-dot"></span>
               <span>自研晶片與晶片資安 · 全球產業脈絡</span>
             </div>
-            <h2 style="font-size:20px; font-weight:900; color:#fff;">
+            <h2 style="font-size:20px; font-weight:900;">
               🌐 全球與台灣 ASIC × 資安產業鏈視覺拓撲圖 (ASIC & Security Topology)
             </h2>
-            <p style="font-size:12px; color:#94a3b8; margin-top:3px;">
+            <p style="font-size:12px; color:var(--text-secondary); margin-top:3px;">
               點選任意節點（如世芯-KY、博通、力旺/熵碼資安、Google TPU），系統將動態點亮該節點的上下游供應鏈與終端客戶！
             </p>
           </div>
@@ -275,30 +288,30 @@ class AsicVisualizer {
           <svg viewBox="0 0 1100 580" class="asic-svg-canvas">
             <defs>
               <marker id="asicArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                <path d="M 0 1 L 9 5 L 0 9 z" fill="#64748b" />
+                <path d="M 0 1 L 9 5 L 0 9 z" fill="#0284c7" />
               </marker>
               <pattern id="asicGrid" width="40" height="40" patternUnits="userSpaceOnUse">
-                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255, 255, 255, 0.02)" stroke-width="1"/>
+                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="${gridStroke}" stroke-width="1"/>
               </pattern>
             </defs>
 
-            <rect width="1100" height="580" fill="#090d18" rx="10" />
+            <rect width="1100" height="580" fill="${canvasBg}" rx="10" />
             <rect width="1100" height="580" fill="url(#asicGrid)" rx="10" />
 
             <!-- 三大欄表頭 -->
             <g class="asic-stage-headers">
-              <rect x="30" y="16" width="270" height="34" rx="6" fill="rgba(139, 92, 246, 0.15)" stroke="#8b5cf655" />
-              <text x="165" y="38" text-anchor="middle" fill="#8b5cf6" font-size="12" font-weight="800">
+              <rect x="30" y="16" width="270" height="34" rx="6" fill="${stage1Bg}" stroke="${stage1Border}" />
+              <text x="165" y="38" text-anchor="middle" fill="${stage1Text}" font-size="12" font-weight="800">
                 🧬 1. 上游：IP / EDA / 信任根 / 晶圓
               </text>
 
-              <rect x="420" y="16" width="270" height="34" rx="6" fill="rgba(6, 182, 212, 0.15)" stroke="#06b6d455" />
-              <text x="555" y="38" text-anchor="middle" fill="#06b6d4" font-size="12" font-weight="800">
+              <rect x="420" y="16" width="270" height="34" rx="6" fill="${stage2Bg}" stroke="${stage2Border}" />
+              <text x="555" y="38" text-anchor="middle" fill="${stage2Text}" font-size="12" font-weight="800">
                 ⚡ 2. 中游：ASIC 設計服務 / 資安硬體 / ODM
               </text>
 
-              <rect x="800" y="16" width="270" height="34" rx="6" fill="rgba(16, 185, 129, 0.15)" stroke="#10b98155" />
-              <text x="935" y="38" text-anchor="middle" fill="#10b981" font-size="12" font-weight="800">
+              <rect x="800" y="16" width="270" height="34" rx="6" fill="${stage3Bg}" stroke="${stage3Border}" />
+              <text x="935" y="38" text-anchor="middle" fill="${stage3Text}" font-size="12" font-weight="800">
                 ☁️ 3. 下游：四大 CSP 自研晶片 / 終端防護
               </text>
             </g>
@@ -624,30 +637,30 @@ class GoogleTpuVisualizer {
           <svg viewBox="0 0 1100 580" class="asic-svg-canvas">
             <defs>
               <marker id="tpuArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                <path d="M 0 1 L 9 5 L 0 9 z" fill="#06b6d4" />
+                <path d="M 0 1 L 9 5 L 0 9 z" fill="#0284c7" />
               </marker>
               <pattern id="tpuGrid" width="40" height="40" patternUnits="userSpaceOnUse">
-                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(66, 133, 244, 0.05)" stroke-width="1"/>
+                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="${isDark ? 'rgba(66, 133, 244, 0.05)' : 'rgba(66, 133, 244, 0.06)'}" stroke-width="1"/>
               </pattern>
             </defs>
 
-            <rect width="1100" height="580" fill="#080e1a" rx="10" />
+            <rect width="1100" height="580" fill="${isDark ? '#080e1a' : '#f8fafc'}" rx="10" />
             <rect width="1100" height="580" fill="url(#tpuGrid)" rx="10" />
 
             <!-- 三大欄表頭 -->
             <g class="asic-stage-headers">
-              <rect x="30" y="16" width="270" height="34" rx="6" fill="rgba(139, 92, 246, 0.18)" stroke="#8b5cf666" />
-              <text x="165" y="38" text-anchor="middle" fill="#c084fc" font-size="12" font-weight="800">
+              <rect x="30" y="16" width="270" height="34" rx="6" fill="${isDark ? 'rgba(139, 92, 246, 0.18)' : 'rgba(109, 40, 217, 0.08)'}" stroke="${isDark ? '#8b5cf666' : '#c4b5fd'}" />
+              <text x="165" y="38" text-anchor="middle" fill="${isDark ? '#c084fc' : '#6d28d9'}" font-size="12" font-weight="800">
                 🧬 1. 上游：晶圓 / HBM / 光開關 / IP
               </text>
 
-              <rect x="420" y="16" width="270" height="34" rx="6" fill="rgba(6, 182, 212, 0.18)" stroke="#06b6d466" />
-              <text x="555" y="38" text-anchor="middle" fill="#22d3ee" font-size="12" font-weight="800">
+              <rect x="420" y="16" width="270" height="34" rx="6" fill="${isDark ? 'rgba(6, 182, 212, 0.18)' : 'rgba(2, 132, 199, 0.08)'}" stroke="${isDark ? '#06b6d466' : '#7dd3fc'}" />
+              <text x="555" y="38" text-anchor="middle" fill="${isDark ? '#22d3ee' : '#0284c7'}" font-size="12" font-weight="800">
                 ⚡ 2. 中游：設計服務 / 水冷 / 伺服器 ODM
               </text>
 
-              <rect x="800" y="16" width="270" height="34" rx="6" fill="rgba(16, 185, 129, 0.18)" stroke="#10b98166" />
-              <text x="935" y="38" text-anchor="middle" fill="#34d399" font-size="12" font-weight="800">
+              <rect x="800" y="16" width="270" height="34" rx="6" fill="${isDark ? 'rgba(16, 185, 129, 0.18)' : 'rgba(5, 150, 105, 0.08)'}" stroke="${isDark ? '#10b98166' : '#6ee7b7'}" />
+              <text x="935" y="38" text-anchor="middle" fill="${isDark ? '#34d399' : '#059669'}" font-size="12" font-weight="800">
                 ☁️ 3. 下游：GCP 超算雲 / 大模型 / 終端客戶
               </text>
             </g>
